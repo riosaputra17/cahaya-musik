@@ -70,4 +70,12 @@ class JasaController extends Controller
 
         return redirect()->route('jasa.index')->with('success', 'Data jasa berhasil diperbarui.');
     }
+
+    public function destroy($id)
+    {
+        $jasa = Jasa::findOrFail($id);
+        $jasa->delete();
+
+        return redirect()->route('jasa.index')->with('success', 'Data jasa berhasil dihapus.');
+    }
 }

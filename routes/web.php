@@ -39,6 +39,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/admin/jasa', [JasaController::class, 'store'])->name('admin.jasa.store');
     Route::get('/jasa/{jasa}/edit', [JasaController::class, 'edit'])->name('admin.jasa.edit');
     Route::put('/admin/jasa/{jasa}', [JasaController::class, 'update'])->name('admin.jasa.update');
+    Route::delete('/admin/jasa/{jasa}', [JasaController::class, 'destroy'])->name('admin.jasa.destroy');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
