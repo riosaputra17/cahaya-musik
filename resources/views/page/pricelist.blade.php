@@ -76,8 +76,9 @@
     <div class="cont__inner">
         <!-- el start -->
         @php
-            $jasas = \App\Models\Jasa::all();
+            $jasas = \App\Models\Jasa::orderBy('created_at', 'asc')->get();
         @endphp
+
         @foreach ($jasas as $index => $jasa)
             <div class="el">
                 <div class="el__overflow">
