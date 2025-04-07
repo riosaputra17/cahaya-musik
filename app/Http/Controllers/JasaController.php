@@ -42,4 +42,32 @@ class JasaController extends Controller
 
         return redirect()->route('jasa.index')->with('success', 'Jasa berhasil ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        $jasa = Jasa::findOrFail($id);
+        $judul = "Edit Jasa";
+
+        return view('admin.jasa.edit', compact('jasa', 'judul'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama_jasa' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'list_services' => 'nullable|string',
+        ]);
+
+        $jasa = Jasa::findOrFail($id);
+
+        $jasa->update([
+            'nama_jasa' => $request->nama_jasa,
+            'price' => $request->price,
+            'list_services' => $request->list_services,
+            'updated_by' => auth()->id()
+        ]);
+
+        return redirect()->route('jasa.index')->with('success', 'Data jasa berhasil diperbarui.');
+    }
 }

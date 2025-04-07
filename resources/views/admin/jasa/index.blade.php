@@ -15,6 +15,7 @@
                         <th>Nama Jasa</th>
                         <th>List Layanan</th>
                         <th>Harga</th>
+                        <th>Aksi</th> {{-- Tambahan kolom aksi --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,11 @@
                                 </ul>
                             </td>
                             <td>Rp {{ number_format($jasa->price, 0, ',', '.') }}</td>
+                            <td>
+                                <a href="{{ route('admin.jasa.edit', $jasa->jasa_id) }}" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
