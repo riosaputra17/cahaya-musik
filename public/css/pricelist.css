@@ -524,6 +524,7 @@ body {
     right: 5px;
 }
 
+/* === MODAL STYLING === */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -534,7 +535,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 999;
+    z-index: 9999; /* Ditinggikan agar tidak tertutup elemen lain */
 }
 
 .modal-content {
@@ -547,11 +548,7 @@ body {
     max-width: 1000px;
     height: 600px;
     overflow-y: auto;
-}
-
-#calendar {
-    width: 100%;
-    height: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content span, h2 {
@@ -564,6 +561,89 @@ body {
     right: 15px;
     font-size: 25px;
     cursor: pointer;
+}
+
+/* Kalender container */
+#calendar {
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/* === FULLCALENDAR CUSTOM STYLE === */
+
+/* Header hari (Senin, Selasa, dst) */
+.fc .fc-col-header-cell-cushion {
+    padding: 10px 0;
+    font-weight: 600;
+    background-color: #f7f7f7;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    text-transform: capitalize;
+    font-size: 13px;
+}
+
+/* Garis grid dan frame */
+.fc .fc-scrollgrid {
+    border: none;
+}
+
+.fc .fc-scrollgrid-section,
+.fc .fc-daygrid-day-frame {
+    border: 1px solid #eee;
+}
+
+/* Nomor tanggal di pojok kanan atas tiap kotak */
+.fc .fc-daygrid-day-number {
+    padding: 4px;
+    font-size: 13px;
+    color: #444;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Event (acara yang dibooking) */
+.fc-event {
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.fc-event:hover {
+    filter: brightness(0.9);
+}
+
+/* Tombol navigasi dan tampilan */
+.fc .fc-button {
+    background-color: #6c757d;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: white;
+}
+
+.fc .fc-button:hover {
+    background-color: #5a6268;
+}
+
+.fc .fc-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Tombol utama seperti "Hari Ini" */
+.fc .fc-button-primary {
+    background-color: #007bff;
+}
+
+.fc .fc-button-primary:hover {
+    background-color: #0069d9;
 }
 
 /* Media query untuk tablet */
@@ -597,5 +677,10 @@ body {
     }
     .el__text {
         font-size: 24px;
+    }
+    .modal-content {
+        width: 95%;
+        height: 90%;
+        padding: 15px 20px;
     }
 }

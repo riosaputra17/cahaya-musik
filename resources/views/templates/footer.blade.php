@@ -67,7 +67,7 @@ feather.replace();
 
                     alert('Tanggal mulai: ' + start + '\nTanggal selesai: ' + endStr);
                     // bisa ganti alert ini jadi munculin form booking
-                }
+                },
             });
             calendar.render();
         }
