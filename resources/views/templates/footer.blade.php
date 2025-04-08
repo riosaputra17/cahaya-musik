@@ -45,9 +45,13 @@ feather.replace();
                 },
                 dayHeaderFormat: { weekday: 'long' },
                 selectable: true,
-                dateClick: function(info) {
-                    alert('Tanggal dipilih: ' + info.dateStr);
-                    // Nanti kamu bisa ganti alert ini jadi form booking
+                select: function(info) {
+                    const start = info.startStr;
+                    const end = new Date(info.end);
+                    const endStr = end.toISOString().split('T')[0];
+
+                    alert('Tanggal mulai: ' + start + '\nTanggal selesai: ' + endStr);
+                    // bisa ganti alert ini jadi munculin form booking
                 }
             });
             calendar.render();
