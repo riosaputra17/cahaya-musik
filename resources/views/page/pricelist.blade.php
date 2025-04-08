@@ -110,13 +110,6 @@
                                       <button class="btn-price" role="button">Order Now</button>
                                     </a>
 
-                                    <!-- Modal Floating -->
-                                    <div id="modalFloating" class="modal-overlay" style="display: none;">
-                                      <div class="modal-content">
-                                          <span class="close-btn" onclick="closeModal()">&times;</span>
-                                          <div id="calendar"></div>
-                                      </div>
-                                    </div>
                                 @else
                                     <a href="{{ route('register') }}">
                                         <button class="btn-price" role="button">Order Now</button>

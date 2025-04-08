@@ -38,5 +38,13 @@
     @include('page.pricelist')
     @include('page.kontak')
 
+    <!-- Modal Floating -->
+    <div id="modalFloating" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="calendar"></div>
+        </div>
+      </div>
+
     @include('templates.footer')
 @endsection
