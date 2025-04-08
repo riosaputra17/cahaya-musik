@@ -26,6 +26,39 @@
 feather.replace();
 </script>
 
+<script>
+    function showModal() {
+        document.getElementById("modalFloating").style.display = "flex";
+    
+        // Cek apakah kalender sudah di-render, jika belum, render
+        if (!document.getElementById("calendar").classList.contains("fc")) {
+            let calendarEl = document.getElementById('calendar');
+            let calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'id',
+                initialView: 'dayGridMonth',
+                buttonText: {
+                    today: 'Hari Ini',     // <- ini yang mengganti tombol "today"
+                    month: 'Bulan',
+                    week: 'Minggu',
+                    day: 'Hari',
+                    list: 'Agenda'
+                },
+                dayHeaderFormat: { weekday: 'long' },
+                selectable: true,
+                dateClick: function(info) {
+                    alert('Tanggal dipilih: ' + info.dateStr);
+                    // Nanti kamu bisa ganti alert ini jadi form booking
+                }
+            });
+            calendar.render();
+        }
+    }
+    
+    function closeModal() {
+        document.getElementById("modalFloating").style.display = "none";
+    }
+</script>  
+
 <!-- My javascript -->
 <script src="{{ asset('js/script.js') }}?v={{ time() }}"></script>
 </body>
