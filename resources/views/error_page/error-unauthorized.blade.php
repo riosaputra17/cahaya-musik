@@ -69,7 +69,7 @@
     <p>Halaman tidak tersedia karena anda tidak memiliki akses, kembali kehalaman home</p>
     <div class="buttons">
         <a href="{{ url('/') }}" class="btn btn-home">Go Home</a>
-        <a href="#" class="btn btn-contact">Contact Us</a>
+        <!-- <a href="#" class="btn btn-contact">Contact Us</a> -->
     </div>
 </body>
 
