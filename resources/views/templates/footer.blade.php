@@ -45,6 +45,21 @@ feather.replace();
                 },
                 dayHeaderFormat: { weekday: 'long' },
                 selectable: true,
+                selectOverlap: false, // mencegah seleksi bertabrakan dengan event
+                events: [
+                    {
+                        title: 'BAND AMBYAR LIVE',
+                        start: '2025-04-10',
+                        end: '2025-04-13', // FullCalendar: end eksklusif → tampil s.d. 12 Apr
+                        color: '#d9534f' // warna merah
+                    },
+                    {
+                        title: 'DANGDUT FULL LIVE',
+                        start: '2025-04-20',
+                        end: '2025-04-22',
+                        color: '#5bc0de' // warna biru
+                    }
+                ],
                 select: function(info) {
                     const start = info.startStr;
                     const end = new Date(info.end);
