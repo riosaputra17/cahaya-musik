@@ -618,6 +618,19 @@ body {
     filter: brightness(0.9);
 }
 
+.modal-content a {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0;
+    padding: 2.0rem 1.6rem;
+}
+
+.modal-content span{
+    color: #ffffff;
+}
+
 /* Tombol navigasi dan tampilan */
 .fc .fc-button {
     background-color: #6c757d;
@@ -639,11 +652,11 @@ body {
 
 /* Tombol utama seperti "Hari Ini" */
 .fc .fc-button-primary {
-    background-color: #007bff;
+    background-color: #000000;
 }
 
 .fc .fc-button-primary:hover {
-    background-color: #0069d9;
+    background-color: #010101;
 }
 
 /* Media query untuk tablet */
