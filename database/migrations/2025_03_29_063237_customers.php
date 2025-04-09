@@ -11,6 +11,7 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->uuid('customer_id')->primary();
+            $table->uuid('user_id')->nullable()->index();
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('phone')->nullable();

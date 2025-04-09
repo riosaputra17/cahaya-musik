@@ -10,11 +10,25 @@
     <div class="bg-img">
       <div class="content">
         <header>CAHAYA MUSIK Login</header>
+          @if (session('success'))
+            <div class="alert-success" style="margin-bottom: 15px; background: #d4edda; color: #155724; padding: 10px; border-radius: 5px;">
+              {{ session('success') }}
+            </div>
+          @endif
+          @if ($errors->any())
+            <div class="alert-error" style="margin-bottom: 15px; color: #e74c3c; background: #ffe6e6; padding: 10px; border-radius: 5px;">
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
           <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="field">
               <span class="fa fa-user"></span>
-              <input type="text" name="username" required placeholder="Email or Phone" />
+              <input type="text" name="username" required placeholder="Email atau Username" />
             </div>
             <div class="field space">
               <span class="fa fa-lock"></span>

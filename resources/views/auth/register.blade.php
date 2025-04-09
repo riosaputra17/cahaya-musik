@@ -10,31 +10,73 @@
     <div class="bg-img">
       <div class="content">
         <header>CAHAYA MUSIK Register</header>
-        <form action="{{ route('register') }}" method="POST">
-          @csrf
-          <div class="field">
-            <span class="fa fa-user"></span>
-            <input type="text" name="username" required placeholder="Username" />
-          </div>
-          <div class="field space">
-            <span class="fa fa-user"></span>
-            <input type="text" name="email" required placeholder="Email or Phone" />
-          </div>
-          <div class="field space">
-            <span class="fa fa-lock"></span>
-            <input
-              type="password"
-              name="password"
-              class="pass-key"
-              required
-              placeholder="Password"
-            />
-            <span class="show">SHOW</span>
-          </div>
-          <div class="field space">
-            <input type="submit" value="Register" />
-          </div>
-        </form>
+          @if ($errors->any())
+            <div class="alert-error" style="margin-bottom: 15px; color: #e74c3c; background: #ffe6e6; padding: 10px; border-radius: 5px;">
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
+          <form action="{{ route('register') }}" method="POST">
+            @csrf
+          
+            <!-- Nama Lengkap -->
+            <div class="field">
+              <span class="fa fa-user"></span>
+              <input type="text" name="name" required placeholder="Nama Lengkap" />
+            </div>
+          
+            <!-- Username -->
+            <div class="field space">
+              <span class="fa fa-user"></span>
+              <input type="text" name="username" required placeholder="Username, contoh: riosaputra" />
+            </div>
+          
+            <!-- Email -->
+            <div class="field space">
+              <span class="fa fa-envelope"></span>
+              <input type="email" name="email" required placeholder="Email" />
+            </div>
+          
+            <!-- Nomor HP -->
+            <div class="field space">
+              <span class="fa fa-phone"></span>
+              <input type="text" name="phone" required placeholder="Nomor HP" />
+            </div>
+          
+            <!-- Alamat -->
+            <div class="field space">
+              <span class="fa fa-home"></span>
+              <input type="text" name="address" required placeholder="Alamat Lengkap" />
+            </div>
+          
+            <!-- Password -->
+            <div class="field space">
+              <span class="fa fa-lock"></span>
+              <input
+                type="password"
+                name="password"
+                class="pass-key"
+                required
+                placeholder="Password"
+              />
+              <span class="show">SHOW</span>
+            </div>
+
+            <!-- Password Konfirmasi -->
+            <div class="field space">
+              <span class="fa fa-lock"></span>
+              <input type="password" name="password_confirmation" required placeholder="Konfirmasi Password">
+              <span class="show">SHOW</span>
+            </div>
+          
+            <!-- Tombol Submit -->
+            <div class="field space">
+              <input type="submit" value="Register" />
+            </div>
+          </form>        
         <div class="signup">
           Sudah Punya Akun?
           <a href="/login">Login Now</a>
