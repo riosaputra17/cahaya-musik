@@ -555,6 +555,10 @@ body {
     color: #252525;
 }
 
+.modal-content .fc-icon {
+    color: #fff;
+}
+
 .close-btn {
     position: absolute;
     top: 5px;
@@ -627,7 +631,7 @@ body {
     padding: 2.0rem 1.6rem;
 }
 
-.modal-content span{
+section h2 {
     color: #ffffff;
 }
 
