@@ -44,7 +44,7 @@
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <div id="calendar"></div>
         </div>
-      </div>
+    </div>
 
     @include('templates.footer')
 @endsection

@@ -77,6 +77,7 @@
         <!-- el start -->
         @php
             $jasas = \App\Models\Jasa::orderBy('created_at', 'asc')->get();
+            $customerId = Auth::user()?->customer?->customer_id;
         @endphp
 
         @foreach ($jasas as $index => $jasa)
@@ -106,7 +107,7 @@
 
                                 @if (session()->has('user'))
                                     <!-- Tombol Order Now -->
-                                    <a href="javascript:void(0);" onclick="showModal()">
+                                    <a href="javascript:void(0);" onclick="showModal('{{ $jasa->jasa_id }}', '{{ e($jasa->nama_jasa) }}', '{{ $customerId }}')">
                                       <button class="btn-price" role="button">Order Now</button>
                                     </a>
 

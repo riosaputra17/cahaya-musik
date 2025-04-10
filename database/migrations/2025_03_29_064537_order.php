@@ -13,7 +13,8 @@ return new class extends Migration
             $table->uuid('customer_id');
             $table->uuid('jasa_id');
 
-            $table->date('tanggal_order');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->bigInteger('total_harga');
             $table->bigInteger('dp_harga');
             $table->string('payment_status')->default('pending'); // bisa juga enum kalau mau lebih ketat

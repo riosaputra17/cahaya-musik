@@ -27,7 +27,11 @@ feather.replace();
 </script>
 
 <script>
-    function showModal() {
+    window.appConfig = {
+        csrfToken: "{{ csrf_token() }}",
+        orderStoreUrl: "{{ route('orders.store') }}"
+    };
+    function showModal(jasaId, jasaName, customerId) {
         document.getElementById("modalFloating").style.display = "flex";
     
         // Cek apakah kalender sudah di-render, jika belum, render
@@ -46,27 +50,51 @@ feather.replace();
                 dayHeaderFormat: { weekday: 'long' },
                 selectable: true,
                 selectOverlap: false, // mencegah seleksi bertabrakan dengan event
-                events: [
-                    {
-                        title: 'BAND AMBYAR LIVE',
-                        start: '2025-04-10',
-                        end: '2025-04-13', // FullCalendar: end eksklusif → tampil s.d. 12 Apr
-                        color: '#d9534f' // warna merah
-                    },
-                    {
-                        title: 'DANGDUT FULL LIVE',
-                        start: '2025-04-20',
-                        end: '2025-04-22',
-                        color: '#5bc0de' // warna biru
-                    }
-                ],
+                events: function(fetchInfo, successCallback, failureCallback) {
+                    fetch(`{{ route('orders.events') }}?jasa_id=${jasaId}&customer_id=${customerId}`, {
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(events => successCallback(events))
+                    .catch(err => {
+                        console.error('Gagal load event:', err);
+                        failureCallback(err);
+                    });
+                },
                 select: function(info) {
                     const start = info.startStr;
                     const end = new Date(info.end);
                     const endStr = end.toISOString().split('T')[0];
 
-                    alert('Tanggal mulai: ' + start + '\nTanggal selesai: ' + endStr);
-                    // bisa ganti alert ini jadi munculin form booking
+                    fetch(window.appConfig.orderStoreUrl, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json", // <-- ini penting agar Laravel tidak balas HTML redirect
+                            "X-CSRF-TOKEN": window.appConfig.csrfToken
+                        },
+                        body: JSON.stringify({
+                            jasa_id: jasaId,
+                            customer_id: customerId,
+                            start_date: start,
+                            end_date: endStr
+                        })
+                    })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Respon tidak valid (bukan JSON). Status: " + res);
+                        }
+                        return res.json();
+                    })
+                    .then(res => {
+                        alert('Booking berhasil!\nOrder ID: ' + res.order_id);
+                    })
+                    .catch(err => {
+                        alert('Terjadi kesalahan saat booking.');
+                        console.error(err);
+                    });
                 },
             });
             calendar.render();
@@ -76,7 +104,7 @@ feather.replace();
     function closeModal() {
         document.getElementById("modalFloating").style.display = "none";
     }
-</script>  
+</script> 
 
 <!-- My javascript -->
 <script src="{{ asset('js/script.js') }}?v={{ time() }}"></script>
