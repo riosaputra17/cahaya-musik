@@ -23,7 +23,7 @@
 
 <!-- featres icon -->
 <script>
-feather.replace();
+    feather.replace();
 </script>
 
 <script>
@@ -31,27 +31,33 @@ feather.replace();
         csrfToken: "{{ csrf_token() }}",
         orderStoreUrl: "{{ route('orders.store') }}"
     };
+
     function showModal(jasaId, jasaName, customerId) {
         document.getElementById("modalFloating").style.display = "flex";
-    
-        // Cek apakah kalender sudah di-render, jika belum, render
-        if (!document.getElementById("calendar").classList.contains("fc")) {
-            let calendarEl = document.getElementById('calendar');
-            let calendar = new FullCalendar.Calendar(calendarEl, {
-                locale: 'id',
-                initialView: 'dayGridMonth',
-                buttonText: {
-                    today: 'Hari Ini',     // <- ini yang mengganti tombol "today"
-                    month: 'Bulan',
-                    week: 'Minggu',
-                    day: 'Hari',
-                    list: 'Agenda'
-                },
-                dayHeaderFormat: { weekday: 'long' },
-                selectable: true,
-                selectOverlap: false, // mencegah seleksi bertabrakan dengan event
-                events: function(fetchInfo, successCallback, failureCallback) {
-                    fetch(`{{ route('orders.events') }}?jasa_id=${jasaId}&customer_id=${customerId}`, {
+
+        // Bersihkan kalender sebelumnya jika sudah ada (opsional)
+        if (window.calendarInstance) {
+            window.calendarInstance.destroy();
+        }
+
+        let calendarEl = document.getElementById('calendar');
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            locale: 'id',
+            initialView: 'dayGridMonth',
+            buttonText: {
+                today: 'Hari Ini',
+                month: 'Bulan',
+                week: 'Minggu',
+                day: 'Hari',
+                list: 'Agenda'
+            },
+            dayHeaderFormat: {
+                weekday: 'long'
+            },
+            selectable: true,
+            selectOverlap: false,
+            events: function(fetchInfo, successCallback, failureCallback) {
+                fetch(`/orders/events`, {
                         headers: {
                             'Accept': 'application/json'
                         }
@@ -62,17 +68,17 @@ feather.replace();
                         console.error('Gagal load event:', err);
                         failureCallback(err);
                     });
-                },
-                select: function(info) {
-                    const start = info.startStr;
-                    const end = new Date(info.end);
-                    const endStr = end.toISOString().split('T')[0];
+            },
+            select: function(info) {
+                const start = info.startStr;
+                const end = new Date(info.end);
+                const endStr = end.toISOString().split('T')[0];
 
-                    fetch(window.appConfig.orderStoreUrl, {
+                fetch(window.appConfig.orderStoreUrl, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
-                            "Accept": "application/json", // <-- ini penting agar Laravel tidak balas HTML redirect
+                            "Accept": "application/json",
                             "X-CSRF-TOKEN": window.appConfig.csrfToken
                         },
                         body: JSON.stringify({
@@ -84,7 +90,7 @@ feather.replace();
                     })
                     .then(res => {
                         if (!res.ok) {
-                            throw new Error("Respon tidak valid (bukan JSON). Status: " + res);
+                            throw new Error("Respon tidak valid.");
                         }
                         return res.json();
                     })
@@ -95,16 +101,18 @@ feather.replace();
                         alert('Terjadi kesalahan saat booking.');
                         console.error(err);
                     });
-                },
-            });
-            calendar.render();
-        }
+            }
+        });
+
+        calendar.render();
+        window.calendarInstance = calendar; // Simpan instance
     }
-    
+
+
     function closeModal() {
         document.getElementById("modalFloating").style.display = "none";
     }
-</script> 
+</script>
 
 <!-- My javascript -->
 <script src="{{ asset('js/script.js') }}?v={{ time() }}"></script>

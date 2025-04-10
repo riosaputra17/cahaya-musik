@@ -41,16 +41,10 @@ class OrderController extends Controller
         ]);
     }
 
-    public function events(Request $request)
+    public function events()
     {
-        $request->validate([
-            'jasa_id' => 'required|uuid',
-            'customer_id' => 'required|uuid',
-        ]);
 
-        $orders = Order::where('jasa_id', $request->jasa_id)
-            ->where('customer_id', $request->customer_id)
-            ->get(['start_date', 'end_date', 'order_id']);
+        $orders = Order::all(['start_date', 'end_date', 'order_id']);
 
         $events = $orders->map(function ($order) {
             return [
