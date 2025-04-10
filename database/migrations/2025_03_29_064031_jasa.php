@@ -12,6 +12,7 @@ return new class extends Migration
             $table->uuid('jasa_id')->primary();
             $table->string('nama_jasa');
             $table->bigInteger('price');
+            $table->bigInteger('dp_price');
 
             $table->text('list_services')->nullable();
 

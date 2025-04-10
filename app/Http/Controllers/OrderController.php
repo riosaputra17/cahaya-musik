@@ -21,7 +21,7 @@ class OrderController extends Controller
 
         $jasa = Jasa::where('jasa_id', $request->jasa_id)->firstOrFail();
         $totalHarga = $jasa->price;
-        $dpHarga = $totalHarga * 0.3; // contoh: 30% dari total sebagai DP
+        $dpHarga = $jasa->dp_price;
 
         // Buat order
         $order = Order::create([

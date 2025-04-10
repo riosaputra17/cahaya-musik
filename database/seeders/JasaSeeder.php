@@ -24,6 +24,7 @@ class JasaSeeder extends Seeder
                     'Genset 2 unit'
                 ]),
                 'price' => 30000000,
+                'dp_price' => 500000,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -40,6 +41,7 @@ class JasaSeeder extends Seeder
                     'Genset 1 unit'
                 ]),
                 'price' => 15000000,
+                'dp_price' => 500000,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -55,6 +57,7 @@ class JasaSeeder extends Seeder
                     'Genset 1 unit'
                 ]),
                 'price' => 9000000,
+                'dp_price' => 500000,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -68,6 +71,7 @@ class JasaSeeder extends Seeder
                     'Singer 4 & MC Musik 1'
                 ]),
                 'price' => 7000000,
+                'dp_price' => 500000,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

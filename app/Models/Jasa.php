@@ -25,6 +25,7 @@ class Jasa extends Model
         'jasa_id',
         'nama_jasa',
         'price',
+        'dp_price',
         'list_services',
         'created_by',
         'updated_by',
