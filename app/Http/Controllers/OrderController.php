@@ -44,14 +44,16 @@ class OrderController extends Controller
     public function events()
     {
 
-        $orders = Order::all(['start_date', 'end_date', 'order_id']);
+        $orders = Order::all(['start_date', 'end_date', 'order_id', 'payment_status']);
 
         $events = $orders->map(function ($order) {
+            $color = $order->payment_status === 'pending' ? '#ffc107' : '#28a745';
+            $title = $order->payment_status === 'pending' ? 'Booking Pending #' . substr($order->order_id, 0, 6) : 'Booking #' . substr($order->order_id, 0, 6);
             return [
-                'title' => 'Booking #' . substr($order->order_id, 0, 6),
+                'title' => $title,
                 'start' => $order->start_date,
                 'end' => date('Y-m-d', strtotime($order->end_date . ' +1 day')), // FullCalendar needs end-exclusive
-                'color' => '#28a745',
+                'color' => $color,
             ];
         });
 

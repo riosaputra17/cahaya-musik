@@ -29,6 +29,7 @@ class JasaController extends Controller
         $request->validate([
             'nama_jasa' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
+            'dp_price' => 'required|numeric|min:0',
             'list_services' => 'nullable|string',
         ]);
 
@@ -36,6 +37,7 @@ class JasaController extends Controller
             'jasa_id' => (string) Str::uuid(),
             'nama_jasa' => $request->nama_jasa,
             'price' => $request->price,
+            'dp_price' => $request->dp_price,
             'list_services' => $request->list_services,
             'created_by' => auth()->id()
         ]);
@@ -56,6 +58,7 @@ class JasaController extends Controller
         $request->validate([
             'nama_jasa' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
+            'dp_price' => 'required|numeric|min:0',
             'list_services' => 'nullable|string',
         ]);
 
@@ -64,6 +67,7 @@ class JasaController extends Controller
         $jasa->update([
             'nama_jasa' => $request->nama_jasa,
             'price' => $request->price,
+            'dp_price' => $request->dp_price,
             'list_services' => $request->list_services,
             'updated_by' => auth()->id()
         ]);

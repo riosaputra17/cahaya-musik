@@ -30,6 +30,17 @@
                     @enderror
                 </div>
 
+                {{-- Harga DP --}}
+                <div class="form-group">
+                    <label for="price">Harga DP (Rp)</label>
+                    <input type="number" name="dp_price" id="dp_price"
+                        class="form-control @error('dp_price') is-invalid @enderror"
+                        value="{{ old('price', $jasa->dp_price) }}">
+                    @error('dp_price')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 {{-- List Layanan --}}
                 <div class="form-group">
                     <label for="list_services">List Layanan</label>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,14 +26,24 @@ class UserSeeder extends Seeder
             'created_at' => now(),
         ]);
 
-        // Regular User Account
+        $userIdCustomer = Str::uuid();
+        $emailCustomer = 'riobadrun1721@gmail.com';
         User::create([
-            'user_id' => Str::uuid(),
+            'user_id' => $userIdCustomer,
             'username' => 'riobadrun',
-            'email' => 'riobadrun1721@gmail.com',
+            'email' => $emailCustomer,
             'password' => Hash::make('user'),
             'role' => 'user',
             'created_at' => now(),
+        ]);
+
+        Customer::create([
+            'customer_id' => Str::uuid(),
+            'user_id' => $userIdCustomer,
+            'nama' => 'Rio Saputra',
+            'email' => $emailCustomer,
+            'phone' => '089514121111',
+            'alamat' => 'Bekasi',
         ]);
     }
 }

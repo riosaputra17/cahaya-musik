@@ -24,6 +24,7 @@
                         <th>Nama Jasa</th>
                         <th>List Layanan</th>
                         <th>Harga</th>
+                        <th>Harga DP</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -40,6 +41,7 @@
                                 </ul>
                             </td>
                             <td>Rp {{ number_format($jasa->price, 0, ',', '.') }}</td>
+                            <td>Rp {{ number_format($jasa->dp_price, 0, ',', '.') }}</td>
                             <td class="d-flex gap-1">
                                 <a href="{{ route('admin.jasa.edit', $jasa->jasa_id) }}"
                                     class="btn btn-sm btn-warning mr-1">
