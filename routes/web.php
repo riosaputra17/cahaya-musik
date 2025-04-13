@@ -8,6 +8,7 @@ use App\Http\Controllers\JasaController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,4 +48,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::get('/orders/events', [OrderController::class, 'events'])->name('orders.events');
+    Route::get('/pay', [PaymentController::class, 'index']);
+    Route::post('/pay', [PaymentController::class, 'pay']);
+    Route::get('/payment/success', fn() => 'Pembayaran berhasil');
 });
