@@ -67,4 +67,9 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'deleted_by', 'user_id');
     }
+
+    public function getRouteKeyName()
+    {
+        return 'order_id';
+    }
 }

@@ -3,12 +3,12 @@
     <a href="#" class="navbar-logo">Cahaya<span>Musik</span>.</a>
 
     <div class="navbar-nav">
-        <a href="#">Home</a>
+        <a href="{{ route('home') }}">Home</a>
         <a href="#about">Tentang Kami</a>
         <a href="#menu">Our Service</a>
         <a href="#ourgallery">Our Gallery</a>
         <a href="#contact">Kontak</a>
-        <a href="#contact">My Orders</a>
+        <a href="{{ route('orders.my', Auth::user()?->customer?->customer_id) }}">My Orders</a>
     </div>
 
     <div class="navbar-extra">

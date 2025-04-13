@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
+use App\Models\Order;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,9 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/orders/events', [OrderController::class, 'events'])->name('orders.events');
     Route::get('/pay', [PaymentController::class, 'index']);
     Route::post('/payment/{order_id}', [PaymentController::class, 'pay'])->name('pay.start');
-    Route::post('/payment/success', [OrderController::class, 'paymentSuccess'])->name('payment.success');
+    Route::bind('order', function ($value) {
+        return Order::where('order_id', $value)->firstOrFail();
+    });
+    Route::get('/payment/success/{order}', [OrderController::class, 'paymentSuccess'])->name('payment.success');
     Route::get('/my-orders/{customer_id}', [OrderController::class, 'myOrders'])->name('orders.my');
 });

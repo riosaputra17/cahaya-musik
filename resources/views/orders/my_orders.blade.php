@@ -4,9 +4,9 @@
     @include('templates.header')
     @include('page.navbar')
     <div class="container">
-        <h2>Daftar Order Saya</h2>
+        <h2 style="color: white">Daftar Order Saya</h2>
 
-        @if($orders->isEmpty())
+        @if ($orders->isEmpty())
             <p>Belum ada order untuk customer ID: {{ $customer_id }}</p>
         @else
             <table class="table table-bordered">
@@ -14,6 +14,7 @@
                     <tr>
                         <th>ID Order</th>
                         <th>Jasa</th>
+                        <th>Total DP</th>
                         <th>Tanggal Mulai</th>
                         <th>Tanggal Selesai</th>
                         <th>Status</th>
@@ -21,24 +22,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($orders as $order)
-                    <tr>
-                        <td>{{ $order->order_id }}</td>
-                        <td>{{ $order->jasa->nama_jasa ?? '-' }}</td>
-                        <td>{{ $order->start_date }}</td>
-                        <td>{{ $order->end_date }}</td>
-                        <td>
-                            {{ ucfirst($order->status ?? 'pending') }}
-                            
-                            @if(($order->status ?? 'pending') === 'pending')
-                                <form action="{{ route('pay.start', ['order_id' => $order->order_id]) }}" method="POST" style="margin-top: 0.5rem;">
-                                    @csrf
-                                    <button type="submit" class="btn btn-sm btn-warning">Pay</button>
-                                </form>
-                            @endif
-                        </td>
-                        <td>{{ $order->created_at->format('d-m-Y H:i') }}</td>
-                    </tr>
+                    @foreach ($orders as $order)
+                        <tr>
+                            <td>{{ $order->order_id }}</td>
+                            <td>{{ $order->jasa->nama_jasa ?? '-' }}</td>
+                            <td>{{ $order->dp_harga ? 'Rp' . number_format($order->dp_harga, 0, ',', '.') : '-' }}</td>
+                            <td>{{ $order->start_date }}</td>
+                            <td>{{ $order->end_date }}</td>
+                            <td>
+                                {{ ucfirst($order->payment_status ?? 'pending') }}
+
+                                @if (($order->payment_status ?? 'pending') === 'pending')
+                                    <form action="{{ route('pay.start', ['order_id' => $order->order_id]) }}" method="POST"
+                                        style="margin-top: 0.5rem;">
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-warning">Pay</button>
+                                    </form>
+                                @endif
+                            </td>
+                            <td>{{ $order->created_at->format('d-m-Y H:i') }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

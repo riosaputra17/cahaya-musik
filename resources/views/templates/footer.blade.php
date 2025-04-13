@@ -116,6 +116,6 @@
 
 <!-- My javascript -->
 <script src="{{ asset('js/script.js') }}?v={{ time() }}"></script>
-</body>
+</body>php
 
 </html>
