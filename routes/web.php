@@ -49,6 +49,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::get('/orders/events', [OrderController::class, 'events'])->name('orders.events');
     Route::get('/pay', [PaymentController::class, 'index']);
-    Route::post('/pay', [PaymentController::class, 'pay']);
-    Route::get('/payment/success', fn() => 'Pembayaran berhasil');
+    Route::post('/payment/{order_id}', [PaymentController::class, 'pay'])->name('pay.start');
+    Route::post('/payment/success', [OrderController::class, 'paymentSuccess'])->name('payment.success');
+    Route::get('/my-orders/{customer_id}', [OrderController::class, 'myOrders'])->name('orders.my');
 });

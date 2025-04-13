@@ -41,6 +41,29 @@ class OrderController extends Controller
         ]);
     }
 
+    public function paymentSuccess(Request $request)
+    {
+        $request->validate([
+            'order_id' => 'required|uuid',
+        ]);
+
+        $order = Order::where('order_id', $request->order_id)->first();
+
+        if (!$order) {
+            return response()->json(['success' => false, 'message' => 'Order tidak ditemukan'], 404);
+        }
+
+        if ($order->payment_status !== 'success') {
+            $order->payment_status = 'success';
+            $order->save();
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Pembayaran berhasil, status diperbarui.',
+        ]);
+    }
+
     public function events()
     {
 
@@ -58,5 +81,14 @@ class OrderController extends Controller
         });
 
         return response()->json($events);
+    }
+
+    public function myOrders($customer_id)
+    {
+        $orders = Order::where('customer_id', $customer_id)
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+
+        return view('orders.my_orders', compact('orders', 'customer_id'));
     }
 }

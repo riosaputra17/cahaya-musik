@@ -95,7 +95,7 @@
                         return res.json();
                     })
                     .then(res => {
-                        alert('Booking berhasil!\nOrder ID: ' + res.order_id);
+                        window.location.href = `/my-orders/${customerId}`;
                     })
                     .catch(err => {
                         alert('Terjadi kesalahan saat booking.');
