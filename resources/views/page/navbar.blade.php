@@ -8,7 +8,9 @@
         <a href="#menu">Our Service</a>
         <a href="#gallery">Our Gallery</a>
         <a href="#contact">Kontak</a>
-        {{-- <a href="{{ route('orders.my', Auth::user()?->customer?->customer_id) }}">My Orders</a> --}}
+        @if (Auth::user()?->customer?->customer_id)
+            <a href="{{ route('orders.my', Auth::user()?->customer?->customer_id) }}">My Orders</a>
+        @endif
     </div>
 
     <div class="navbar-extra">
