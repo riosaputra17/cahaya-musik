@@ -2,8 +2,7 @@
 <section class="products" id="products">
     <h2><span>Price List</span> Kami</h2>
     <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sed
-        corrupti quasi ipsum. Veritatis, sequi?
+      Temukan pilihan paket terbaik sesuai kebutuhan acara Anda mulai dari musik hingga dekorasi, semua kami hadirkan dengan kualitas dan harga yang bersahabat.
     </p>
     <!-- <div class="row">
         <div class="product-card">

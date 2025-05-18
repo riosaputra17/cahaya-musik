@@ -2,8 +2,7 @@
 <section id="contact" class="contact">
     <h2><span>Kontak </span> Kami</h2>
     <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ea magnam,
-        ullam exercitationem voluptates blanditiis sequi atque vel.
+        Hubungi kami untuk informasi lebih lanjut atau pemesanan layanan. Tim kami siap membantu Anda Jangan ragu untuk menghubungi kami. 
     </p>
 
     <div class="row">

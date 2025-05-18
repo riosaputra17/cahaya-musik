@@ -12,10 +12,10 @@
             <span id="slide-3"></span>
             <span id="slide-4"></span>
 
-            <img src="{{ asset('img/grup3.png') }}" alt="">
-            <img src="{{ asset('img/Banner1.png') }}" alt="">
-            <img src="{{ asset('img/Banner3.png') }}" alt="">
-            <img src="{{ asset('img/banner4.png') }}" alt="">
+            <img src="{{ asset('img/Slide-1.png') }}" alt="">
+            <img src="{{ asset('img/Slide-2.png') }}" alt="">
+            <img src="{{ asset('img/Slide-3.png') }}" alt="">
+            <img src="{{ asset('img/Slide-4.png') }}" alt="">
         </div>
 
         <!-- Previous and Next buttons -->
@@ -36,6 +36,7 @@
     @include('page.about')
     @include('page.menu')
     @include('page.pricelist')
+    @include('page.gallery')
     @include('page.kontak')
 
     <!-- Modal Floating -->

@@ -60,7 +60,7 @@ body {
     align-items: center;
     padding: 1.4rem 5%;
     background-color: rgba(1, 1, 1, 0.8);
-    border-radius: 1px solid #513c28;
+    border-radius: 1px solid var#513c28;
     position: fixed;
     top: 0;
     left: 0;
@@ -94,7 +94,7 @@ body {
     content: "";
     display: block;
     padding-bottom: 0.5rem;
-    border-bottom: 0.1rem solid var(--primary);
+    border-bottom: 0.1rem solid var(--bg2);
     transform: scaleX(0);
     transition: 0.2s linear;
 }
@@ -109,97 +109,7 @@ body {
 }
 
 .navbar .navbar-extra a:hover {
-    color: var(--primary);
-}
-
-#hamburger-menu {
-    display: none;
-}
-
-/* Navbar Search Form */
-.navbar .search-form {
-    position: absolute;
-    top: 100%;
-    right: 7%;
-    background-color: #fff;
-    width: 50rem;
-    height: 5rem;
-    display: flex;
-    text-align: center;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: 0.5s;
-}
-
-.navbar .search-form.active {
-    transform: scaleY(1);
-}
-
-.navbar .search-form input {
-    height: 100%;
-    width: 100%;
-    font-size: 1.6rem;
-    color: var(--bg);
-    padding: 1rem;
-}
-
-.navbar .search-form label {
-    cursor: pointer;
-    font-size: 2rem;
-    margin-right: 1.5rem;
-    margin-top: 1rem;
-    color: var(--bg);
-}
-
-/* shoppong-cart */
-.shopping-cart {
-    position: absolute;
-    top: 100%;
-    right: -100%;
-    height: 100vh;
-    width: 35rem;
-    padding: 1.5rem;
-    color: var(--bg);
-    background-color: #fff;
-    transition: 0.3s linear;
-}
-
-.shopping-cart.active {
-    right: 0;
-}
-
-.shopping-cart .cart-item {
-    margin-bottom: 2rem 0;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    border-bottom: 1px dashed #666;
-    position: relative;
-}
-
-.shopping-cart img {
-    height: 6rem;
-    border-radius: 50%;
-}
-
-.shopping-cart h3 {
-    font-size: 1.6rem;
-    padding-bottom: 0.5rem;
-}
-
-.shopping-cart .item-price {
-    font-size: 1.2rem;
-}
-
-.shopping-cart .remove-item {
-    position: absolute;
-    right: 1rem;
-    cursor: pointer;
-}
-
-.shopping-cart .remove-item:hover {
-    color: var(--primary);
+    color: var(--bg2);
 }
 
 /* Hero Section */
@@ -280,11 +190,11 @@ body {
     z-index: 1;
 }
 
-.prev {
+.nav-button.prev {
     left: 20px;
 }
 
-.next {
+.nav-button.next {
     right: 20px;
 }
 
@@ -303,7 +213,8 @@ body {
 .about h2,
 .menu h2,
 .contact h2,
-.products h2 {
+.products h2,
+.gallery h2 {
     text-align: center;
     font-size: 2.6rem;
     margin-bottom: 3rem;
@@ -312,7 +223,8 @@ body {
 .about h2 span,
 .menu h2 span,
 .contact h2 span,
-.products h2 span {
+.products h2 span,
+.gallery h2 span {
     color: var(--bg2);
 }
 
@@ -350,12 +262,15 @@ body {
 
 /* Menu Section */
 .menu h2,
-.contact h2 {
-    margin-bottom: 1rem;
+.contact h2,
+.products h2,
+.gallery h2 {
+    margin-bottom: 10px;
 }
 .menu p,
 .contact p,
-.products p {
+.products p,
+.gallery p {
     text-align: center;
     max-width: 3orem;
     margin-bottom: auto;
@@ -364,12 +279,13 @@ body {
 }
 
 .product-card {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Laptop default: 3 kolom */
+    gap: 25px;
     justify-content: center;
-    margin: 70px;
-    padding: 30px;
+    margin: 30px auto; /* lebih proporsional */
+    padding: 20px;
+    max-width: 1200px;
 }
 
 .wrapper {
@@ -408,93 +324,59 @@ body {
     letter-spacing: 2px;
 }
 
-/* Product Section */
-.products .row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 4rem;
-}
-
-.products .product-card {
-    text-align: center;
-    border: 1px solid #666;
-    padding: 2rem;
-}
-
-.products .product-icon {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.products .product-icon a {
-    width: 4rem;
-    height: 4rem;
-    color: #fff;
-    margin: 0.3rem;
-    border: 1px solid#666;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.products .product-icon a:hover {
-    background-color: var(--primary);
-    border: 1px solid var(--primary);
-}
-
-.products .product-image {
-    padding: 1rem 0;
-}
-
-.products .product-image img {
-    height: 25rem;
-}
-
-.products .product-content h3 {
-    font-size: 2rem;
-}
-
-.products .product-stars {
-    font-size: 1.7rem;
-    padding: 0.8rem;
-    color: var(--primary);
-}
-
-.products .product-stars .star-full {
-    fill: var(--primary);
-}
-
-.products .product-price {
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.products .product-price span {
-    text-decoration: line-through;
-    font-weight: lighter;
-    font-size: 1rem;
-}
-
 /* our gallery section */
+
+.gallery p {
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    columns: 5 200px;
+    column-gap: 1.5rem;
+    width: 90%;
+    margin: 0 auto;
+    div {
+        width: 150px;
+        margin: 0 1.5rem 1.5rem 0;
+        display: inline-block;
+        width: 100%;
+        border: solid 2px rgb(138, 137, 137);
+        padding: 5px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        transition: all 0.25s ease-in-out;
+        &:hover img {
+            filter: grayscale(0);
+        }
+        &:hover {
+            border-color: rgb(255, 255, 255);
+        }
+        img {
+            width: 100%;
+            border-radius: 5px;
+            transition: all 0.25s ease-in-out;
+        }
+        p {
+            margin: 5px 0;
+            padding: 0;
+            text-align: center;
+            font-style: italic;
+        }
+    }
+}
+
+/* Vidio Section Youtube */
+.vidio-section h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.vidio-section h3 span {
+    color: var(--bg2);
+}
+
 /* Gaya untuk grid gallery */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-}
-
-.gallery img {
-    width: 100%;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
 
 /* Gaya modal */
 .modal {
@@ -563,6 +445,7 @@ body {
 }
 
 /* contact Section */
+
 .contact .row {
     display: flex;
     margin-top: 2rem;
@@ -605,7 +488,7 @@ body {
 
     font-size: 1rem;
     color: #fff;
-    background-color: var(--primary);
+    background-color: var(--bg2);
     cursor: pointer;
 }
 
@@ -843,46 +726,35 @@ footer .credit a {
         font-size: 62.5%;
     }
 
-    #hamburger-menu {
-        display: inline-block;
+    .navbar {
+        padding: 10px 20px;
     }
 
-    .navbar .navbar-nav {
-        position: absolute;
-        top: 100%;
-        right: -100%;
-        background-color: white;
-        width: 30rem;
-        height: 100vh;
-        transition: 0.3s;
-    }
-
-    .navbar .navbar-nav.active {
-        right: 0;
+    .navbar .navbar-logo {
+        font-size: 1.2rem;
+        align-items: center;
     }
 
     .navbar .navbar-nav a {
-        color: var(--bg);
-        display: block;
-        margin: 1.5rem;
-        padding: 0.5rem;
-        font-size: 2rem;
+        font-size: 0.8rem;
+        margin: 5px;
+        align-items: center;
     }
 
-    .navbar .navbar-nav a::after {
-        transform-origin: 0 0;
-    }
-    .navbar .navbar-nav a:hover::after {
-        transform: scale(0.2);
+    .navbar .navbar-extra a {
+        width: 12px;
+        height: 12px;
+        display: flex;
+        align-items: center;
     }
 
-    .navbar .search-form {
-        width: 90%;
-        right: 2rem;
+    .nav-button {
+        font-size: 20px; /* perkecil ikon panah */
+        padding: 6px 10px; /* perkecil padding */
     }
 
     .about {
-        margin-top: -45rem;
+        margin-top: -48rem;
     }
     .about .row {
         flex-wrap: wrap;
@@ -920,7 +792,7 @@ footer .credit a {
     }
     .hero::after {
         height: 15%; /* Naikkan nilai height untuk menaikkan posisi */
-        bottom: 65%; /* Naikkanposisi lebih tinggi */
+        bottom: 63%; /* Naikkanposisi lebih tinggi */
     }
 
     .navbar {
@@ -939,6 +811,27 @@ footer .credit a {
     .nav-button {
         top: 25%; /* Naikkan dposisi tombol lebih tinggi pada tablet */
     }
+
+    .product-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .banner-image img {
+        height: 150px;
+    }
+
+    .wrapper {
+        max-width: 170px;
+    }
+
+    .menu h1 {
+        font-size: 16px;
+    }
+
+    .menu p {
+        font-size: 13px;
+    }
 }
 
 /* Media Phone */
@@ -949,5 +842,24 @@ footer .credit a {
 
     .about {
         margin-top: -70px;
+    }
+
+    .product-card {
+        grid-template-columns: repeat(2, 1fr); /* 👈 tetap 2 kolom */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .container-menu {
+        padding: 10px;
+    }
+
+    .wrapper {
+        max-width: 100px;
+    }
+
+    .banner-image img {
+        height: 10px;
+        object-fit: cover;
     }
 }
