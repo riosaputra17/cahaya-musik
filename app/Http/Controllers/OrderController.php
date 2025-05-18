@@ -69,11 +69,13 @@ class OrderController extends Controller
     public function events()
     {
 
-        $orders = Order::all(['start_date', 'end_date', 'order_id', 'payment_status']);
+        $orders = Order::with('jasa')->get(['start_date', 'end_date', 'order_id', 'payment_status', 'jasa_id']);
 
         $events = $orders->map(function ($order) {
             $color = $order->payment_status === 'pending' ? '#ffc107' : '#28a745';
-            $title = $order->payment_status === 'pending' ? 'Booking Pending #' . substr($order->order_id, 0, 6) : 'Booking #' . substr($order->order_id, 0, 6);
+            $title = $order->payment_status === 'pending'
+                ? 'Booking Pending #' . ($order->jasa->nama_jasa ?? 'Unknown')
+                : 'Booking #' . ($order->jasa->nama_jasa ?? 'Unknown');
             return [
                 'title' => $title,
                 'start' => $order->start_date,
