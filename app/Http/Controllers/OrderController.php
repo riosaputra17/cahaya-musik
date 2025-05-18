@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PaymentSuccessMail;
 use App\Models\Jasa;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -46,6 +48,16 @@ class OrderController extends Controller
         $order = Order::where('order_id', $o->order_id)->firstOrFail();
         $order->payment_status = 'success';
         $order->save();
+
+        // Ambil email dan nama user
+        $customerEmail = $order->customer->email ?? $order->email; // Sesuaikan dengan struktur relasi Anda
+        $customerName = $order->customer->name ?? 'Pelanggan';
+
+        // Kirim email ke user
+        Mail::to($customerEmail)->send(new PaymentSuccessMail($customerName));
+
+        // Kirim email ke admin (Gmail Anda)
+        Mail::to('riobadrun1721@gmail.com')->send(new PaymentSuccessMail($customerName));
 
         $orders = Order::where('customer_id', $order->customer_id)
             ->orderBy('created_at', 'desc')

@@ -75,7 +75,7 @@
     <div class="cont__inner">
         <!-- el start -->
         @php
-            $jasas = \App\Models\Jasa::orderBy('created_at', 'asc')->get();
+            $jasas = \App\Models\Jasa::orderBy('nama_jasa', 'asc')->get();
             $customerId = Auth::user()?->customer?->customer_id;
         @endphp
 
