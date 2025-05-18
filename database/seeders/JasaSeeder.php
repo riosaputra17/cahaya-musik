@@ -30,6 +30,20 @@ class JasaSeeder extends Seeder
             ],
             [
                 'jasa_id' => (string) Str::uuid(),
+                'nama_jasa' => 'Wedding 1',
+                'list_services' => implode('|', [
+                    'Sound Systme Ground Stage',
+                    'Panggung 6x6 & Cover Sound',
+                    'Lighting Semi Set',
+                    'Singer 4 & MC Musik 1'
+                ]),
+                'price' => 7000000,
+                'dp_price' => 500000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'jasa_id' => (string) Str::uuid(),
                 'nama_jasa' => 'BAND AMBYAR LIVE',
                 'list_services' => implode('|', [
                     'Sound Systme Line Array 10.00 Watt',
@@ -41,6 +55,20 @@ class JasaSeeder extends Seeder
                     'Genset 1 unit'
                 ]),
                 'price' => 15000000,
+                'dp_price' => 500000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'jasa_id' => (string) Str::uuid(),
+                'nama_jasa' => 'Wedding 2',
+                'list_services' => implode('|', [
+                    'Sound Systme Ground Stage',
+                    'Panggung 6x6 & Cover Sound',
+                    'Lighting Semi Set',
+                    'Singer 4 & MC Musik 1'
+                ]),
+                'price' => 7000000,
                 'dp_price' => 500000,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -63,7 +91,7 @@ class JasaSeeder extends Seeder
             ],
             [
                 'jasa_id' => (string) Str::uuid(),
-                'nama_jasa' => 'WATERFALL',
+                'nama_jasa' => 'Wedding 3',
                 'list_services' => implode('|', [
                     'Sound Systme Ground Stage',
                     'Panggung 6x6 & Cover Sound',
@@ -74,7 +102,21 @@ class JasaSeeder extends Seeder
                 'dp_price' => 500000,
                 'created_at' => now(),
                 'updated_at' => now(),
-            ]
+            ],
+                [
+                    'jasa_id' => (string) Str::uuid(),
+                    'nama_jasa' => 'WATERFALL',
+                    'list_services' => implode('|', [
+                        'Sound Systme Ground Stage',
+                        'Panggung 6x6 & Cover Sound',
+                        'Lighting Semi Set',
+                        'Singer 4 & MC Musik 1'
+                ]),
+                'price' => 7000000,
+                'dp_price' => 500000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]  
         ]);
     }
 }
