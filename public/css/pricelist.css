@@ -601,6 +601,12 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
+.fc-event .fc-event-main {
+    position: relative;
+    max-width: 100%;
+    z-index: 2;
+}
+
 .fc-event:hover {
     filter: brightness(0.9);
 }
@@ -611,7 +617,7 @@ h2 {
     justify-content: center;
     text-align: center;
     margin-top: 0;
-    padding: 2rem 1.6rem;
+    padding: 30% 0;
 }
 
 section h2 {

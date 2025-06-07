@@ -74,8 +74,8 @@ class OrderController extends Controller
         $events = $orders->map(function ($order) {
             $color = $order->payment_status === 'pending' ? '#ffc107' : '#28a745';
             $title = $order->payment_status === 'pending'
-                ? 'Booking Pending #' . ($order->jasa->nama_jasa ?? 'Unknown')
-                : 'Booking #' . ($order->jasa->nama_jasa ?? 'Unknown');
+                ? 'Pending'
+                : 'Booked';
             return [
                 'title' => $title,
                 'start' => $order->start_date,
