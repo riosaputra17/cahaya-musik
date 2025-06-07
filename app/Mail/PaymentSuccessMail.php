@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -14,13 +13,21 @@ class PaymentSuccessMail extends Mailable
     use Queueable, SerializesModels;
 
     public $userName;
+    public $jasaNama;
+    public $jasaHarga;
+    public $jasaDp;
+    public $jasaLayanan;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($userName)
+    public function __construct($userName, $jasaNama, $jasaHarga, $jasaDp, $jasaLayanan)
     {
         $this->userName = $userName;
+        $this->jasaNama = $jasaNama;
+        $this->jasaHarga = $jasaHarga;
+        $this->jasaDp = $jasaDp;
+        $this->jasaLayanan = $jasaLayanan;
     }
 
     /**
@@ -42,6 +49,10 @@ class PaymentSuccessMail extends Mailable
             view: 'emails.payment_success',
             with: [
                 'userName' => $this->userName,
+                'jasaNama' => $this->jasaNama,
+                'jasaHarga' => $this->jasaHarga,
+                'jasaDp' => $this->jasaDp,
+                'jasaLayanan' => $this->jasaLayanan,
             ],
         );
     }

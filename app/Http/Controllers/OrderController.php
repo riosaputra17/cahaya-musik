@@ -51,13 +51,19 @@ class OrderController extends Controller
 
         // Ambil email dan nama user
         $customerEmail = $order->customer->email ?? $order->email; // Sesuaikan dengan struktur relasi Anda
-        $customerName = $order->customer->name ?? 'Pelanggan';
+        $customerName = $order->customer->nama ?? 'Pelanggan';
 
-        // Kirim email ke user
-        Mail::to($customerEmail)->send(new PaymentSuccessMail($customerName));
+        $jasa = $order->jasa;
+        $jasaNama = $jasa->nama_jasa ?? '-';
+        $jasaHarga = $jasa->price ?? 0;
+        $jasaDp = $jasa->dp_price ?? 0;
+        $jasaLayanan = $jasa->list_services ?? '-';
 
-        // Kirim email ke admin (Gmail Anda)
-        Mail::to('riobadrun1721@gmail.com')->send(new PaymentSuccessMail($customerName));
+         // Kirim email ke customer
+        Mail::to($customerEmail)->send(new PaymentSuccessMail($customerName, $jasaNama, $jasaHarga, $jasaDp, $jasaLayanan));
+
+        // Kirim email ke admin
+        Mail::to('riobadrun1721@gmail.com')->send(new PaymentSuccessMail($customerName, $jasaNama, $jasaHarga, $jasaDp, $jasaLayanan));
 
         $orders = Order::where('customer_id', $order->customer_id)
             ->orderBy('created_at', 'desc')
