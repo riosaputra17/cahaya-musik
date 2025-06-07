@@ -17,19 +17,32 @@ class PaymentController extends Controller
     {
         $order = Order::findOrFail($order_id);
 
-        $params = [
-            'transaction_details' => [
-                'order_id' => $order->order_id,
-                'gross_amount' => $order->dp_harga ?? 300000,
-            ],
-            'customer_details' => [
-                'first_name' => $order->customer->nama,
-                'email' => $order->customer->email,
-                'phone' => $order->customer->phone,
-            ],
-        ];
+        // Sudah punya token? Gunakan ulang
+        if ($order->snap_token) {
+            $snapToken = $order->snap_token;
+        } else {
+            $params = [
+                'transaction_details' => [
+                    'order_id' => $order->order_id,
+                    'gross_amount' => $order->dp_harga ?? 300000,
+                ],
+                'customer_details' => [
+                    'first_name' => $order->customer->nama,
+                    'email' => $order->customer->email,
+                    'phone' => $order->customer->phone,
+                ],
+            ];
 
-        $snapToken = Snap::getSnapToken($params);
+            try {
+                $snapToken = Snap::getSnapToken($params);
+                $order->snap_token = $snapToken;
+                $order->save();
+            } catch (\Exception $e) {
+                return back()->withErrors([
+                    'midtrans' => 'Gagal mendapatkan token Midtrans: ' . $e->getMessage()
+                ]);
+            }
+        }
 
         return view('payment.midtrans.payment', compact('snapToken', 'order'));
     }

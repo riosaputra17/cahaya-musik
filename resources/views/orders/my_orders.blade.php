@@ -4,6 +4,11 @@
     @include('templates.header')
     @include('page.navbar')
     <div class="container">
+        @if ($errors->has('midtrans'))
+            <div style="background-color: #f8d7da; color: #721c24; padding: 12px 16px; border: 1px solid #f5c6cb; border-radius: 4px; margin-bottom: 1rem;">
+                {{ $errors->first('midtrans') }}
+            </div>
+        @endif
         <h2 style="color: white">Daftar Order Saya</h2>
 
         @if ($orders->isEmpty())
