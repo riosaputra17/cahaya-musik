@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet" />
 
+    
     <!-- bootstrap -->
 
 
@@ -21,6 +22,7 @@
     <!-- my style css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/pricelist.css') }}?v={{ time() }}" />
+    <link rel="stylesheet" href="{{ asset('css/scrol-main.css') }}?v={{ time() }}" />
 
     <!-- FullCalendar Styles & Scripts -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">

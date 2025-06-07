@@ -92,10 +92,11 @@
                                 <div class="el__text">{{ $jasa->nama_jasa }}</div>
 
                                 <div class="pricelist">
+                                  <div class="detail_jasa">
                                     @foreach (explode('|', $jasa->list_services) as $service)
                                         <li>{{ trim($service) }}</li>
                                     @endforeach
-
+                                    </div>
                                     <h2>Rp.{{ number_format($jasa->price, 0, ',', '.') }} Full Pack</h2>
                                     <p>
                                         Ingin sesuaiakan dengan event mu atau mengundang bintang

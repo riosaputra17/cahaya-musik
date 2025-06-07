@@ -32,12 +32,15 @@ class JasaSeeder extends Seeder
                 'jasa_id' => (string) Str::uuid(),
                 'nama_jasa' => 'Wedding 1',
                 'list_services' => implode('|', [
-                    'Sound Systme Ground Stage',
-                    'Panggung 6x6 & Cover Sound',
-                    'Lighting Semi Set',
-                    'Singer 4 & MC Musik 1'
+                    'Decoration Lengkap 6 Meter',
+                    'Tenda & Perlengkapan',
+                    'Make Up 4 Baju',
+                    'Musik Hiburan By Cahaya Musik',
+                    'Live Streaming',
+                    'MC Akad',
+                    'Kirab Pengantin'
                 ]),
-                'price' => 7000000,
+                'price' => 38000000,
                 'dp_price' => 500000,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -46,7 +49,7 @@ class JasaSeeder extends Seeder
                 'jasa_id' => (string) Str::uuid(),
                 'nama_jasa' => 'BAND AMBYAR LIVE',
                 'list_services' => implode('|', [
-                    'Sound Systme Line Array 10.00 Watt',
+                    'Sound Systme Line Array 10.000 Watt',
                     'Panggung 8x6 & Cover Sound',
                     'Peralatan Musik FUll Sett',
                     'Lighting Semi Set',
@@ -63,12 +66,13 @@ class JasaSeeder extends Seeder
                 'jasa_id' => (string) Str::uuid(),
                 'nama_jasa' => 'Wedding 2',
                 'list_services' => implode('|', [
-                    'Sound Systme Ground Stage',
-                    'Panggung 6x6 & Cover Sound',
-                    'Lighting Semi Set',
-                    'Singer 4 & MC Musik 1'
+                    'Decoration Lengkap 6 Meter',
+                    'Tenda & Perlengkapan',
+                    'Make Up 4 Baju',
+                    'Foto & Vidio',
+                    'Musik Hiburan By Cahaya Musik'
                 ]),
-                'price' => 7000000,
+                'price' => 25000000,
                 'dp_price' => 500000,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -77,7 +81,7 @@ class JasaSeeder extends Seeder
                 'jasa_id' => (string) Str::uuid(),
                 'nama_jasa' => 'ORGAN TUNGGAL 1',
                 'list_services' => implode('|', [
-                    'Sound Systme Line Array 10.00 Watt',
+                    'Sound Systme Line Array 10.000 Watt',
                     'Panggung 8x6 & Cover Sound',
                     'Lighting Semi Set',
                     'Live Streaming 3 Camera',
@@ -93,24 +97,25 @@ class JasaSeeder extends Seeder
                 'jasa_id' => (string) Str::uuid(),
                 'nama_jasa' => 'Wedding 3',
                 'list_services' => implode('|', [
-                    'Sound Systme Ground Stage',
-                    'Panggung 6x6 & Cover Sound',
-                    'Lighting Semi Set',
-                    'Singer 4 & MC Musik 1'
+                    'Decoration Lengkap 6 Meter',
+                    'Tenda & Perlengkapan',
+                    'Make Up 3 Baju',
+                    'Foto & Vidio'
                 ]),
-                'price' => 7000000,
+                'price' => 20000000,
                 'dp_price' => 500000,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
                 [
                     'jasa_id' => (string) Str::uuid(),
-                    'nama_jasa' => 'WATERFALL',
+                    'nama_jasa' => 'Organ Tunggal 2',
                     'list_services' => implode('|', [
-                        'Sound Systme Ground Stage',
+                        'Sound Systme Ground Stage 8.000 Watt',
                         'Panggung 6x6 & Cover Sound',
-                        'Lighting Semi Set',
-                        'Singer 4 & MC Musik 1'
+                        'Peralatan Musik Fullset',
+                        'Singer 4',
+                        'MC Musik 1'
                 ]),
                 'price' => 7000000,
                 'dp_price' => 500000,

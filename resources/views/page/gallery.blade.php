@@ -88,7 +88,16 @@
 
     <!-- Video 2 -->
     <iframe width="450" height="250" 
-            src="https://www.youtube.com/embed/ENOREXWFtBE" 
+            src="https://www.youtube.com/embed/GtrVyGRKxOg" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+
+    <!-- Video 3 -->
+    <iframe width="450" height="250" 
+            src="https://www.youtube.com/embed/X-1ECOBJTOE" 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
