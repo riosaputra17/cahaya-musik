@@ -55,8 +55,11 @@
           </div>
         </div>
       </div>
-    </div>
 
+    </div>
+     <!-- button next and previous -->
+    <button class="nav-button prev" id="prev-slide">&#10094;</button>
+    <button class="nav-button next" id="next-slide">&#10095;</button>
    
     <!-- navigation start -->
     <div class="navigation">
@@ -67,9 +70,7 @@
     </div>
     </div>
     {{-- Hero Section Main Page End --}}
-     <!-- button next and previous -->
-    <button class="nav-button prev" id="prev-slide">&#10094;</button>
-    <button class="nav-button next" id="next-slide">&#10095;</button>
+    
 
 
     @include('page.about')
