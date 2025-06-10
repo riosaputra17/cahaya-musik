@@ -601,12 +601,6 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
-.fc-event .fc-event-main {
-    position: relative;
-    max-width: 100%;
-    z-index: 2;
-}
-
 .fc-event:hover {
     filter: brightness(0.9);
 }
@@ -617,7 +611,7 @@ h2 {
     justify-content: center;
     text-align: center;
     margin-top: 0;
-    padding: 30% 0;
+    padding: 2rem 1.6rem;
 }
 
 section h2 {
@@ -641,6 +635,11 @@ section h2 {
 .fc .fc-button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+/* button kalender */
+.fc-toolbar-chunk {
+    padding: 10px;
 }
 
 /* Tombol utama seperti "Hari Ini" */
@@ -683,7 +682,7 @@ section h2 {
     }
 
     .el__heading {
-        font-size: 10px;
+        font-size: 14px;
         text-align: center;
     }
     .el__text {

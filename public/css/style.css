@@ -678,7 +678,8 @@ footer .credit a {
 
     .navbar .navbar-nav a {
         font-size: 0.8rem;
-        margin: 5px;
+        margin: 4px;
+        padding-top: 8px;
         align-items: center;
     }
 

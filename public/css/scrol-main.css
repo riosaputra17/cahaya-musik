@@ -134,11 +134,15 @@
 }
 
 /* Slide 3 */
+.slide-3 {
+    position: relative;
+}
+
 .slide-3 h1 {
     position: absolute;
     width: 600px;
-    left: 3550px;
-    bottom: 160px;
+    left: -300px;
+    bottom: -180px;
     font-family: "Karantina";
     font-style: italic;
     font-weight: 700;
@@ -153,8 +157,8 @@
     position: absolute;
     width: 823.83px;
     height: 106.37px;
-    left: 3400px;
-    bottom: 60px;
+    left: -420px;
+    bottom: -280px;
     font-family: "Karantina";
     font-style: normal;
     font-weight: 700;
@@ -168,10 +172,10 @@
 /* Slide 4 */
 
 .section .slide-4 {
-    position: absolute;
+    position: relative;
     width: 876.8px;
     height: 350px;
-    left: 4700px;
+    left: -220px;
     background: rgba(30, 30, 30, 0.33);
 }
 
@@ -338,7 +342,7 @@
 
     .slide-2 .text-1 h1,
     .slide-2 .text-2 {
-        left: 25%;
+        left: 28%;
         transform: translateX(-25%);
         text-align: left;
         width: 450px;
@@ -357,7 +361,7 @@
     .slide-2 .model-pict {
         position: relative;
         right: -20px;
-        bottom: -120px;
+        bottom: -140px;
         margin-top: 20px;
         display: flex;
         justify-content: center;
@@ -370,15 +374,15 @@
     /* SLide 3 */
 
     .slide-3 .text-1 h1 {
-        left: 42%;
+        left: 41.5%;
         transform: translateX(-50%);
         text-align: center;
         width: 450px;
-        bottom: 150px;
+        bottom: -190px;
     }
 
     .slide-3 .text-1 h2 {
-        left: 42%;
+        left: 41.5%;
         transform: translateX(-50%);
         text-align: center;
         width: 450px;
@@ -395,7 +399,7 @@
 
     /* Slide 4 */
     .section .slide-4 {
-        left: 59%;
+        left: 40%;
         transform: translateX(-50%);
         text-align: left;
         width: 400px;
