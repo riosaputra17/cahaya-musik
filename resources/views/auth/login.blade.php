@@ -35,11 +35,11 @@
               <input type="password" name="password" class="pass-key" required placeholder="Password" />
               <span class="show">SHOW</span>
             </div>
-            <div class="pass">
-              <a href="#">Lupa Password?</a>
-            </div>
             <div class="field">
               <input type="submit" value="LOGIN" />
+            </div>
+            <div class="pass">
+              <a href="#">Lupa Password?</a>
             </div>
           </form>        
         <div class="signup">

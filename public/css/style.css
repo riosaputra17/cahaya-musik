@@ -103,13 +103,71 @@ body {
     transform: scaleX(0.5);
 }
 
-.navbar .navbar-extra a {
+.navbar .navbar-extra {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* kasih jarak antar ikon */
+}
+
+.n.navbar .navbar-extra a {
+    display: flex;
+    align-items: center;
     color: white;
     margin: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 .navbar .navbar-extra a:hover {
     color: var(--bg2);
+}
+
+.navbar .navbar-extra a svg {
+    stroke: currentColor;
+    transition: stroke 0.3s ease;
+}
+
+/* Side bar */
+/* Hamburger hidden by default */
+#hamburger-menu {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    z-index: 10001; /* lebih tinggi dari navbar jika perlu */
+}
+
+/* Sidebar off-screen */
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(1, 1, 1, 0.8);
+    padding-top: 60px;
+    transition: 0.3s ease;
+    z-index: 10000;
+}
+
+.mobile-sidebar a {
+    display: block;
+    color: white;
+    padding: 1rem;
+    font-size: 1.8rem;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.mobile-sidebar a:hover {
+    color: var(--bg2);
+}
+
+.mobile-sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 3rem;
+    color: white;
+    text-decoration: none;
 }
 
 /* Hero Section */
@@ -193,6 +251,7 @@ body {
 }
 
 .about .row .content p {
+    text-align: justify;
     margin-bottom: 0.8rem;
     font-size: 1.4rem;
     font-weight: 300;
@@ -315,76 +374,28 @@ body {
     color: var(--bg2);
 }
 
-/* Gaya untuk grid gallery */
-
-/* Gaya modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+.video-section {
+    margin-top: 50px;
+    text-align: center;
 }
 
-.modal-content {
-    position: relative;
-    margin: auto;
-    width: 90%;
-    max-width: 1200px;
+.video-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.mySlides {
-    display: none;
-}
-
-.modal-content img {
-    width: 100%;
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Tombol navigasi next dan prev */
-.prev,
-.next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover,
-.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.video-container iframe {
+    width: 450px;
+    height: 250px;
 }
 
 /* contact Section */
-
+.contact .btn {
+    font-family: "poppins";
+}
 .contact .row {
     display: flex;
     margin-top: 2rem;
@@ -408,6 +419,7 @@ body {
     margin-top: 2rem;
     background-color: var(--bg);
     border: 1px solid #eee;
+    border-radius: 1rem;
     padding-left: 2rem;
 }
 
@@ -424,8 +436,10 @@ body {
     margin-top: 3rem;
     display: inline-block;
     padding: 1rem 3rem;
-
+    border-radius: 1rem;
+    border: 1px solid #eee;
     font-size: 1rem;
+    font-weight: 700;
     color: #fff;
     background-color: var(--bg2);
     cursor: pointer;
@@ -660,23 +674,31 @@ footer .credit a {
     }
 }
 /* Tablet */
+@media (min-width: 769px) {
+    .mobile-sidebar {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     html {
         font-size: 62.5%;
     }
 
     .navbar {
-        padding: 10px 20px;
+        padding: 25px 35px;
         position: fixed;
         z-index: 9999;
     }
 
     .navbar .navbar-logo {
-        font-size: 1.2rem;
+        margin-left: -15px;
+        font-size: 2.8rem;
         align-items: center;
     }
 
     .navbar .navbar-nav a {
+        display: none;
         font-size: 0.8rem;
         margin: 4px;
         padding-top: 8px;
@@ -684,12 +706,26 @@ footer .credit a {
     }
 
     .navbar .navbar-extra a {
-        width: 12px;
-        height: 12px;
-        display: flex;
+        padding: 5px;
+        width: 25px;
+        height: 25px;
         align-items: center;
     }
 
+    .navbar .navbar-nav {
+        display: none;
+    }
+
+    #hamburger-menu {
+        display: block;
+    }
+
+    .hero::after {
+        height: 50%; /* Naikkan nilai height untuk menaikkan posisi */
+        bottom: 0; /* Naikkanposisi lebih tinggi */
+    }
+
+    /* abaout section responsive */
     .about {
         margin-top: 0.5rem;
     }
@@ -712,6 +748,7 @@ footer .credit a {
         font-size: 1.6rem;
     }
 
+    /* Menu responsive */
     .menu {
         margin-top: -10rem;
     }
@@ -723,41 +760,8 @@ footer .credit a {
         margin-top: -10rem;
     }
 
-    .gallery {
-        margin-top: -110rem;
-    }
-
-    .contact .row {
-        flex-wrap: wrap;
-    }
-
-    .contact .row .map {
-        height: 30rem;
-    }
-
     .modal-content {
         flex-wrap: wrap;
-    }
-    .hero::after {
-        height: 10%; /* Naikkan nilai height untuk menaikkan posisi */
-        bottom: 0; /* Naikkanposisi lebih tinggi */
-    }
-
-    .navbar {
-        position: fixed;
-    }
-
-    .navigation {
-        margin-top: -30px;
-    }
-
-    .navigation a {
-        height: 15px;
-        width: 15px;
-    }
-
-    .nav-button {
-        top: 25%; /* Naikkan dposisi tombol lebih tinggi pada tablet */
     }
 
     .product-card {
@@ -769,16 +773,24 @@ footer .credit a {
         height: 150px;
     }
 
-    .wrapper {
-        max-width: 170px;
-    }
-
     .menu h1 {
         font-size: 16px;
     }
 
     .menu p {
         font-size: 13px;
+    }
+
+    .gallery {
+        margin-top: -170rem;
+    }
+
+    .contact .row {
+        flex-wrap: wrap;
+    }
+
+    .contact .row .map {
+        height: 30rem;
     }
 }
 
@@ -793,21 +805,42 @@ footer .credit a {
     }
 
     .product-card {
-        grid-template-columns: repeat(2, 1fr); /* 👈 tetap 2 kolom */
-        gap: 15px;
-        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
     }
 
+    .product-card .card {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .banner-image img {
+        width: 200px;
+        max-width: 300px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        display: block;
+        margin: 0 auto;
+    }
     .container-menu {
         padding: 10px;
     }
 
     .wrapper {
-        max-width: 100px;
+        max-width: 250px;
     }
 
-    .banner-image img {
-        height: 10px;
-        object-fit: cover;
+    .grid-container {
+        columns: 2 100px;
+        column-gap: 1.5rem;
+    }
+
+    .video-container iframe {
+        padding: 10px;
+        width: 350;
+        height: 150;
     }
 }

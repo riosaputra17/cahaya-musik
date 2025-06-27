@@ -577,6 +577,10 @@ h2 {
     border: none;
 }
 
+.fc .fc-daygrid-day-top {
+    color: red;
+}
+
 .fc .fc-scrollgrid-section,
 .fc .fc-daygrid-day-frame {
     border: 1px solid #eee;
@@ -586,7 +590,7 @@ h2 {
 .fc .fc-daygrid-day-number {
     padding: 4px;
     font-size: 13px;
-    color: #444;
+    color: #ffffff;
     font-weight: 500;
     text-align: right;
 }
@@ -639,7 +643,7 @@ section h2 {
 
 /* button kalender */
 .fc-toolbar-chunk {
-    padding: 10px;
+    padding: 12px;
 }
 
 /* Tombol utama seperti "Hari Ini" */
@@ -678,7 +682,7 @@ section h2 {
         height: 30vh;
     }
     .el__content {
-        transform: translateY(-30px);
+        transform: translateY(-10px);
     }
 
     .el__heading {

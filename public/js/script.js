@@ -37,7 +37,7 @@ document.getElementById("prev-slide").addEventListener("click", () => {
 function startAutoSlide() {
     autoSlideInterval = setInterval(() => {
         nextSlide();
-    }, 5000); // 5000ms = 5 detik
+    }, 7000); // 5000ms = 5 detik
 }
 
 function resetAutoSlide() {
@@ -76,6 +76,21 @@ navDots.forEach((dot, idx) => {
     });
 });
 
+// Humberger Menu
+const hamburger = document.getElementById("hamburger-menu");
+const sidebar = document.getElementById("mobile-sidebar");
+const closeBtn = document.querySelector(".close-btn");
+
+hamburger.addEventListener("click", function (e) {
+    e.preventDefault();
+    sidebar.style.left = "0";
+});
+
+closeBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    sidebar.style.left = "-100%";
+});
+
 // PriceList
 var $cont = document.querySelector(".cont");
 var $elsArr = [].slice.call(document.querySelectorAll(".el"));
@@ -100,3 +115,19 @@ $closeBtnsArr.forEach(function ($btn) {
         document.querySelector(".el.s--active").classList.remove("s--active");
     });
 });
+
+// whatsaap massege
+function sendToWhatsApp() {
+    const nama = document.getElementById("nama").value;
+    const email = document.getElementById("email").value;
+    const nohp = document.getElementById("nohp").value;
+
+    const pesan = `Halo, saya ${nama}, email: ${email}, no HP: ${nohp}. Saya ingin menanyakan informasi Cahaya Musik Cibitung.`;
+    const encodedMessage = encodeURIComponent(pesan);
+    const nomorTujuan = "6285752181103"; // Ganti dengan nomor WhatsApp Anda
+
+    window.open(
+        `https://wa.me/${nomorTujuan}?text=${encodedMessage}`,
+        "_blank"
+    );
+}

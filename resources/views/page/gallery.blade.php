@@ -72,40 +72,39 @@
     </div>
 </div>
 
-<div class="video-section" style="margin-top: 50px; text-align: center;">
-    <h3><span> Vidio Penampilan </span> Kami</h3>
+<div class="video-section">
+  <h3><span>Vidio Penampilan</span> Kami</h3>
 
-  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
-
+  <div class="video-container">
     <!-- Video 1 -->
-    <iframe width="450" height="250" 
-            src="https://www.youtube.com/embed/ENOREXWFtBE" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
+    <iframe
+      src="https://www.youtube.com/embed/ENOREXWFtBE"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
     </iframe>
 
     <!-- Video 2 -->
-    <iframe width="450" height="250" 
-            src="https://www.youtube.com/embed/GtrVyGRKxOg" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
+    <iframe
+      src="https://www.youtube.com/embed/GtrVyGRKxOg"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
     </iframe>
 
     <!-- Video 3 -->
-    <iframe width="450" height="250" 
-            src="https://www.youtube.com/embed/X-1ECOBJTOE" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
+    <iframe
+      src="https://www.youtube.com/embed/X-1ECOBJTOE"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
     </iframe>
-
   </div>
 </div>
+
 
   
 

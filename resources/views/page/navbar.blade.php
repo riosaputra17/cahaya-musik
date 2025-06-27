@@ -4,17 +4,17 @@
 
     <div class="navbar-nav">
         <a href="{{ route('home') }}">Home</a>
-        <a href="#about">Tentang Kami</a>
+        <a href="#about">About Us</a>
         <a href="#menu">Our Service</a>
         <a href="#gallery">Our Gallery</a>
-        <a href="#contact">Kontak</a>
+        <a href="#contact">Contact</a>
         @if (Auth::user()?->customer?->customer_id)
             <a href="{{ route('orders.my', Auth::user()?->customer?->customer_id) }}">My Orders</a>
         @endif
     </div>
-
     <div class="navbar-extra">
         
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
 
         @if (session()->has('user'))
             {{-- <span class="user-role">{{ session('user.name') }}</span> --}}
@@ -28,3 +28,21 @@
 
 </nav>
 <!-- navbar end -->
+
+
+ {{-- Side bar mobile --}}
+ <!-- Hamburger Menu Button (only visible on mobile) -->
+
+<!-- Sidebar Menu (muncul saat hamburger diklik) -->
+<div class="mobile-sidebar" id="mobile-sidebar">
+  <a href="#" class="close-btn">&times;</a>
+  <a href="{{ route('home') }}">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#menu">Our Service</a>
+  <a href="#gallery">Our Gallery</a>
+  <a href="#contact">Contact</a>
+  @if (Auth::user()?->customer?->customer_id)
+    <a href="{{ route('orders.my', Auth::user()?->customer?->customer_id) }}">My Orders</a>
+  @endif
+</div>
+ {{-- Side bar end --}}

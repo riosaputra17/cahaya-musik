@@ -36,12 +36,12 @@
         <div class="slide-3">
           <div class="text-1">
             <h1>Ayah Mansyur S</h1>
-            <br />
-            <h2>
-              Nikmati Kemeriahan Dangdut Dengan Performa Spesial dari Sang
-              Legenda
-            </h2>
           </div>
+            <div class="text-2">
+              <h2>Nikmati Kemeriahan Dangdut Dengan Performa Spesial dari Sang
+              Legenda
+              </h2>
+            </div>
         </div>
       </div>
       <div class="section" id="slide-4">
@@ -82,8 +82,9 @@
     <!-- Modal Floating -->
     <div id="modalFloating" class="modal-overlay" style="display: none;">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="calendar"></div>
+          <div class="calender-stat"></div>
+          <span class="close-btn" onclick="closeModal()">&times;</span>
+          <div id="calendar"></div>
         </div>
     </div>
 
