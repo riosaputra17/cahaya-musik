@@ -1,5 +1,25 @@
 @extends('layouts.main')
 
+@section('extra-css')
+  <style>
+    .section:nth-child(1) {
+        background-image: url("/img/Slide/Slide-1.png");
+    }
+
+    .section:nth-child(2) {
+        background-image: url("/img/Slide/Slide-2.png");
+    }
+
+    .section:nth-child(3) {
+        background-image: url("/img/Slide/Slide-3.png");
+    }
+
+    .section:nth-child(4) {
+        background-image: url("/img/Slide/Slide-4.png");
+    }
+  </style>
+@endsection
+
 @section('content')
     @include('templates.header')
     @include('page.navbar')
