@@ -422,7 +422,7 @@
         }
         .el:nth-child(3) .el__bg:before {
             transition-delay: 0.2s;
-            background-image: url({{ asset("/img/product/organTunggal1.png") }});
+            background-image: url({{ asset("/img/product/organtunggal1.png") }});
         }
         .el:nth-child(4) {
             transform: translate3d(315.625%, 0, 0);
@@ -462,7 +462,7 @@
         }
         .el:nth-child(5) .el__bg:before {
             transition-delay: 0s;
-            background-image: url({{ asset("/img/product/Pricelist_wd1.jpg") }});
+            background-image: url({{ asset("/img/product/PriceList_wd1.jpg") }});
         }
 
         .el:nth-child(6) {
@@ -483,7 +483,7 @@
         }
         .el:nth-child(6) .el__bg:before {
             transition-delay: 0.1s;
-            background-image: url({{ asset("/img/product/Pricelist_wd2.jpg") }});
+            background-image: url({{ asset("/img/product/PriceList_wd2.jpg") }});
         }
 
         .el:nth-child(7) {
@@ -505,7 +505,7 @@
 
         .el:nth-child(7) .el__bg:before {
             transition-delay: 0.2s;
-            background-image: url({{ asset("/img/product/Pricelist_wd3.jpg") }});
+            background-image: url({{ asset("/img/product/PriceList_wd3.jpg") }});
         }
         .el:hover .el__bg:after {
             opacity: 0;
