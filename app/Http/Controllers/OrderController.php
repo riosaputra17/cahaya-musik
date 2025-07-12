@@ -108,7 +108,7 @@ class OrderController extends Controller
             'created_by' => Auth::check() ? Auth::user()->user_id : null,
         ]);
 
-        return redirect()->back()->with([
+        return response()->json([
             'success' => true,
             'order_id' => $order->order_id,
         ]);
