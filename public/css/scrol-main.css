@@ -287,22 +287,6 @@
     background-color: var(--bg2);
 }
 
-.section:nth-child(1) {
-    background-image: url("/img/Slide/Slide-1.png");
-}
-
-.section:nth-child(2) {
-    background-image: url("/img/Slide/Slide-2.png");
-}
-
-.section:nth-child(3) {
-    background-image: url("/img/Slide/Slide-3.png");
-}
-
-.section:nth-child(4) {
-    background-image: url("/img/Slide/Slide-4.png");
-}
-
 /* Tablet */
 @media (max-width: 768px) {
     .section:nth-child(1) {

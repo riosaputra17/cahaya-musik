@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ $judul ?? 'Website' }}</title>
+    @yield('extra-css')
 </head>
 <body>
     @yield('content')
