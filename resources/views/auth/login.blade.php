@@ -45,6 +45,7 @@
         <div class="signup">
           Belum Punya Akun?
           <a href="/register">Register Now</a>
+          <a href="/">Kembali Ke Website</a>
         </div>
       </div>
     </div>

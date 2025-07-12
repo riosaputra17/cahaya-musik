@@ -105,8 +105,9 @@ body {
 
 .navbar .navbar-extra {
     display: flex;
+    gap: 1rem;
     align-items: center;
-    gap: 1rem; /* kasih jarak antar ikon */
+    z-index: 10000;
 }
 
 .n.navbar .navbar-extra a {
@@ -120,10 +121,23 @@ body {
 .navbar .navbar-extra a:hover {
     color: var(--bg2);
 }
+.navbar-extra .nav-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
 
-.navbar .navbar-extra a svg {
-    stroke: currentColor;
-    transition: stroke 0.3s ease;
+.navbar-extra .nav-icon svg {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.navbar-extra .nav-icon span {
+    margin-top: 2px;
 }
 
 /* Side bar */
@@ -705,10 +719,15 @@ footer .credit a {
         align-items: center;
     }
 
+    .navbar-extra {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .navbar .navbar-extra a {
-        padding: 5px;
-        width: 25px;
-        height: 25px;
+        padding: 0;
+        padding-top: 5px;
+        height: 50px;
         align-items: center;
     }
 
@@ -723,6 +742,26 @@ footer .credit a {
     .hero::after {
         height: 50%; /* Naikkan nilai height untuk menaikkan posisi */
         bottom: 0; /* Naikkanposisi lebih tinggi */
+    }
+
+    .nav-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .nav-icon svg {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 2px;
+    }
+
+    .nav-icon span {
+        display: block;
+        font-size: 11px;
     }
 
     /* abaout section responsive */

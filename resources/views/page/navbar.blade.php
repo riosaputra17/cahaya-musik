@@ -14,13 +14,13 @@
     </div>
     <div class="navbar-extra">
         
-        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        <a href="#" class="nav-icon" id="hamburger-menu"><i data-feather="menu"></i></a>
 
         @if (session()->has('user'))
             {{-- <span class="user-role">{{ session('user.name') }}</span> --}}
-            <a href="{{ route('logout') }}" id="logout"><i data-feather="log-out"></i></a>
+            <a href="{{ route('logout') }}" class="nav-icon" id="logout"><i data-feather="log-out"></i><span>Logout</span></a>
         @else
-            <a href="{{ route('login') }}" id="login"><i data-feather="log-in"></i></a>
+            <a href="{{ route('login') }}" class="nav-icon"  id="login"><i data-feather="log-in"></i><span>Login</span></a>
         @endif
 
     </div>

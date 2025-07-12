@@ -37,6 +37,13 @@
                         <p>Jasa</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link">
+                        <i class="nav-icon fas fa-receipt""></i>
+                        <p>Transaksi</p>
+                    </a>
+                </li>
 
             </ul>
         </nav>

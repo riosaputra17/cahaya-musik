@@ -80,6 +80,8 @@
         <div class="signup">
           Sudah Punya Akun?
           <a href="/login">Login Now</a>
+          <br>
+          <a href="/">Kembali Ke Website</a>
         </div>
       </div>
     </div>
