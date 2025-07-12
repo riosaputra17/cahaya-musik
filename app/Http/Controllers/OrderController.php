@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PaymentSuccessMail;
+use App\Models\Customer;
 use App\Models\Jasa;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -11,6 +12,76 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
+    // Menampilkan daftar order dengan relasi customer dan jasa
+    public function index()
+    {
+        $judul = "Order";
+        $data['order'] = Order::with(['customer', 'jasa'])
+            ->orderBy('payment_status', 'asc')
+            ->get();
+
+        return view('admin.transaksi.index', compact('data', 'judul'));
+    }
+
+    // Menampilkan form tambah jasa
+    public function create()
+    {
+        $judul = "Tambah Transaksi";
+        $data['jasas'] = Jasa::all();
+        $data['customers'] = Customer::with('user')->get();
+        return view('admin.transaksi.create', compact('data', 'judul'));
+    }
+    
+     public function edit($id)
+    {
+        $data['order'] = Order::with(['customer', 'jasa'])->findOrFail($id);
+        $data['jasas'] = Jasa::all();
+        $data['customers'] = Customer::all();
+        $judul = "Edit Order";
+
+        return view('admin.transaksi.edit', compact('data', 'judul'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi data
+        $request->validate([
+            'customer_id' => 'required|exists:customers,customer_id',
+            'jasa_id' => 'required|exists:jasa,jasa_id',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+            'total_harga' => 'required|numeric|min:0',
+            'dp_harga' => 'required|numeric|min:0',
+            'payment_status' => 'required|in:pending,success',
+        ]);
+
+        // Ambil data order
+        $order = Order::findOrFail($id);
+
+        // Update data
+        $order->update([
+            'customer_id' => $request->customer_id,
+            'jasa_id' => $request->jasa_id,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'total_harga' => $request->total_harga,
+            'dp_harga' => $request->dp_harga,
+            'payment_status' => $request->payment_status,
+            'updated_by' => auth()->id(), // Jika kolom ini tersedia
+        ]);
+
+        return redirect()->route('admin.transaksi.index')
+            ->with('success', 'Data order berhasil diperbarui.');
+    }
+
+    public function destroy($id)
+    {
+        $order = Order::findOrFail($id);
+        $order->delete();
+
+        return redirect()->route('admin.transaksi.index')->with('success', 'Data order berhasil dihapus.');
+    }
+
     public function store(Request $request)
     {
         // Validasi data yang dikirim
@@ -37,7 +108,7 @@ class OrderController extends Controller
             'created_by' => Auth::check() ? Auth::user()->user_id : null,
         ]);
 
-        return response()->json([
+        return redirect()->back()->with([
             'success' => true,
             'order_id' => $order->order_id,
         ]);

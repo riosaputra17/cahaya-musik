@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#"
+                    <a href="{{ route('admin.transaksi.index') }}"
                         class="nav-link">
                         <i class="nav-icon fas fa-receipt""></i>
                         <p>Transaksi</p>

@@ -43,6 +43,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/jasa/{jasa}/edit', [JasaController::class, 'edit'])->name('admin.jasa.edit');
     Route::put('/admin/jasa/{jasa}', [JasaController::class, 'update'])->name('admin.jasa.update');
     Route::delete('/admin/jasa/{jasa}', [JasaController::class, 'destroy'])->name('admin.jasa.destroy');
+
+    // Transaksi routes menggunakan OrderController
+    Route::get('/admin/transaksi', [OrderController::class, 'index'])->name('admin.transaksi.index');
+    Route::get('/admin/transaksi/create', [OrderController::class, 'create'])->name('admin.transaksi.create');
+    Route::post('/admin/transaksi', [OrderController::class, 'store'])->name('admin.transaksi.store');
+    Route::get('/transaksi/{transaksi}/edit', [OrderController::class, 'edit'])->name('admin.transaksi.edit');
+    Route::put('/admin/transaksi/{transaksi}', [OrderController::class, 'update'])->name('admin.transaksi.update');
+    Route::delete('/admin/transaksi/{transaksi}', [OrderController::class, 'destroy'])->name('admin.transaksi.destroy');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
