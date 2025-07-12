@@ -23,7 +23,7 @@
       </div>
       <div class="section" id="slide-2">
         <div class="slide-2">
-          <div class="model-pict"><img src="/img/Slide/model-2.png" alt="" /></div>
+          <div class="model-pict"><img src="{{ asset('/img/Slide/model-2.png') }}" alt="" /></div>
           <div class="text-1">
             <h1>SIAP MENGGOYANG PANGGUNG ORKEZ DANGDUT FULL & SEMI FULL</h1>
           </div>
