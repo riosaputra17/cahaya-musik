@@ -2,9 +2,27 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cahaya Musik LOGIN</title>
     <link rel="stylesheet" href="{{ asset('css/auth-style.css') }}" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+      .bg-img {
+    background:url({{ asset("/img/auth/Cm_Logo.jpg") }});
+    height: 100vh;
+    background-size: 300px;
+    background-position: center;
+    }
+    .bg-img:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.801);
+    }
+    </style>
   </head>
   <body>
     <div class="bg-img">
@@ -45,6 +63,7 @@
         <div class="signup">
           Belum Punya Akun?
           <a href="/register">Register Now</a>
+          <br>
           <a href="/">Kembali Ke Website</a>
         </div>
       </div>

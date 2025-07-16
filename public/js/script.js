@@ -124,7 +124,7 @@ function sendToWhatsApp() {
 
     const pesan = `Halo, saya ${nama}, email: ${email}, no HP: ${nohp}. Saya ingin menanyakan informasi Cahaya Musik Cibitung.`;
     const encodedMessage = encodeURIComponent(pesan);
-    const nomorTujuan = "6285752181103"; // Ganti dengan nomor WhatsApp Anda
+    const nomorTujuan = "6285714777238"; // Ganti dengan nomor WhatsApp Anda
 
     window.open(
         `https://wa.me/${nomorTujuan}?text=${encodedMessage}`,
