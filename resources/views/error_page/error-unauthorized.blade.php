@@ -126,8 +126,7 @@ p {
     <div class="container">
       <h1>404</h1>
       <p>
-        Halaman tidak tersedia karena anda tidak memiliki akses, kembali
-        kehalaman home
+        Anda tidak memiliki akses untuk melihat halaman ini. Silakan kembali ke halaman utama.
       </p>
       <div class="buttons">
         <a href="/" class="btn">Go Home</a>
