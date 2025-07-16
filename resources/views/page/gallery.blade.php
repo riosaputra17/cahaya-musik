@@ -14,7 +14,7 @@
         </div>
         <div>
             <img class="grid-item grid-item-2" src="{{ asset('img/gallery/elvi.jpg') }}" alt="" />
-            <p>"Guest Star elvi sukaesi"</p>
+            <p>"Guest Star Mega Mustika"</p>
         </div>
         <div>
             <img class="grid-item grid-item-3" src="{{ asset('img/gallery/actor4.jpg') }}" alt="" />

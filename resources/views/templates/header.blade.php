@@ -20,7 +20,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- my style css -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+   <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('css/pricelist.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('css/scrol-main.css') }}?v={{ time() }}" />
 

@@ -340,6 +340,7 @@ body {
 
 .gallery p {
     margin-bottom: 20px;
+    padding: 5px;
 }
 
 .grid-container {
@@ -820,16 +821,16 @@ footer .credit a {
         font-size: 13px;
     }
 
-    .gallery {
-        margin-top: -160rem;
-    }
-
     .contact .row {
         flex-wrap: wrap;
     }
 
     .contact .row .map {
         height: 30rem;
+    }
+
+    .gallery {
+        margin-top: -170rem;
     }
 }
 
@@ -881,5 +882,22 @@ footer .credit a {
         padding: 10px;
         width: 350;
         height: 150;
+    }
+
+    .gallery {
+        margin-top: -170rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .gallery {
+        margin-top: -155rem;
+    }
+}
+
+/* Ukuran phone lebih kecil */
+@media (max-width: 390px) {
+    .gallery {
+        margin-top: -120rem;
     }
 }

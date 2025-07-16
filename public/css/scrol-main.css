@@ -415,3 +415,33 @@
         left: 355px;
     }
 }
+
+/* Ukuran phone  */
+@media (max-width: 450px) {
+    .slide-1 .text-1 h1 {
+        font-size: 46px;
+        line-height: 46px;
+        padding-left: 18px;
+        bottom: 230px; /* naikkan sedikit agar tidak terlalu ke bawah */
+    }
+
+    .slide-1 .text-2 h1 {
+        font-size: 40px;
+        line-height: 48px;
+        padding-left: 18px;
+        bottom: 180px;
+    }
+
+    /* Slide 4 */
+    .section .slide-4 {
+        left: 40%;
+        transform: translateX(-45%);
+        text-align: left;
+        width: 350px;
+        height: 250px;
+    }
+
+    .nav-button.next {
+        left: 340px;
+    }
+}
