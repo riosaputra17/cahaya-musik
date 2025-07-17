@@ -47,18 +47,26 @@
                                     "{{ route('payment.success', ['order' => $order->order_id]) }}";
                             },
                             onPending: function(result) {
-                                alert("Pending: " + JSON.stringify(result));
+                                // Redirect user to a custom pending page or show a message
+                                window.location.href =
+                                    "{{ route('payment.pending', ['order' => $order->order_id]) }}";
                             },
                             onError: function(result) {
                                 if (result && result.transaction_status === 'expire') {
                                     alert("Pembayaran telah kadaluarsa. Silakan lakukan pemesanan ulang.");
+                                    window.location.href =
+                                        "{{ route('home') }}";
                                 } else {
-                                    alert("Error: " + JSON.stringify(result));
+                                    // alert("Error: " + JSON.stringify(result));
+                                    window.location.href =
+                                        "{{ route('home') }}";
                                 }
                                 console.error("Midtrans Error:", result);
                             },
                             onClose: function() {
                                 alert('Anda belum menyelesaikan pembayaran');
+                                window.location.href =
+                                    "{{ route('payment.pending', ['order' => $order->order_id]) }}";
                             }
                         });
                     });

@@ -31,8 +31,8 @@ class OrderController extends Controller
         $data['customers'] = Customer::with('user')->get();
         return view('admin.transaksi.create', compact('data', 'judul'));
     }
-    
-     public function edit($id)
+
+    public function edit($id)
     {
         $data['order'] = Order::with(['customer', 'jasa'])->findOrFail($id);
         $data['jasas'] = Jasa::all();
@@ -130,7 +130,7 @@ class OrderController extends Controller
         $jasaDp = $jasa->dp_price ?? 0;
         $jasaLayanan = $jasa->list_services ?? '-';
 
-         // Kirim email ke customer
+        // Kirim email ke customer
         Mail::to($customerEmail)->send(new PaymentSuccessMail($customerName, $jasaNama, $jasaHarga, $jasaDp, $jasaLayanan));
 
         // Kirim email ke admin
@@ -141,6 +141,15 @@ class OrderController extends Controller
             ->get();
 
         return view('orders.my_orders', compact('orders'));
+    }
+
+    public function paymentPending(Order $o)
+    {
+        $order = Order::where('order_id', $o->order_id)->firstOrFail();
+        $orders = Order::where('customer_id', $order->customer_id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return view('payment.pending', compact('order', 'orders',));
     }
 
     public function events()

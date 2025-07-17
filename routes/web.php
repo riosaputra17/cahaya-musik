@@ -63,5 +63,6 @@ Route::middleware(['auth', 'role:user'])->group(function () {
         return Order::where('order_id', $value)->firstOrFail();
     });
     Route::get('/payment/success/{order}', [OrderController::class, 'paymentSuccess'])->name('payment.success');
+    Route::get('/payment/pending/{order}', [OrderController::class, 'paymentPending'])->name('payment.pending');
     Route::get('/my-orders/{customer_id}', [OrderController::class, 'myOrders'])->name('orders.my');
 });
