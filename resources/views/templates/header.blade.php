@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet" />
 
-    
+
     <!-- bootstrap -->
 
 
@@ -20,7 +20,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- my style css -->
-   <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('css/pricelist.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('css/scrol-main.css') }}?v={{ time() }}" />
 
@@ -46,13 +46,16 @@
             height: 240vh;
             padding: 80px 70px;
         }
+
         .cont__inner {
             position: relative;
             height: 40%;
         }
+
         .cont__inner:hover .el__bg:after {
             opacity: 1;
         }
+
         .el {
             position: absolute;
             left: 0;
@@ -64,23 +67,28 @@
                 z-index 0s 1.3s;
             will-change: transform, width, opacity;
         }
+
         .el:not(.s--active) {
             cursor: pointer;
         }
+
         .el__overflow {
             overflow: hidden;
             position: relative;
             height: 100%;
         }
+
         .el__inner {
             overflow: hidden;
             position: relative;
             height: 100%;
             transition: transform 1s;
         }
+
         .cont.s--inactive .el__inner {
             transform: translate3d(0, 100%, 0);
         }
+
         .el__bg {
             position: relative;
             width: calc(100vw - 100px);
@@ -88,6 +96,7 @@
             transition: transform 0.6s 0.7s;
             will-change: transform;
         }
+
         .el__bg:before {
             content: "";
             position: absolute;
@@ -100,12 +109,15 @@
             transition: transform 1s;
             transform: translate3d(0, 0, 0) scale(1);
         }
+
         .cont.s--inactive .el__bg:before {
             transform: translate3d(0, -100%, 0) scale(1.2);
         }
+
         .el.s--active .el__bg:before {
             transition: transform 0.8s;
         }
+
         .el__bg:after {
             content: "";
             z-index: 1;
@@ -118,10 +130,12 @@
             opacity: 0;
             transition: opacity 0.5s;
         }
+
         .cont.s--el-active .el__bg:after {
             transition: opacity 0.5s 1.4s;
             opacity: 1 !important;
         }
+
         .el__preview-cont {
             z-index: 2;
             display: flex;
@@ -134,22 +148,27 @@
             height: 100%;
             transition: all 0.3s 1.2s;
         }
+
         .cont.s--inactive .el__preview-cont {
             opacity: 0;
             transform: translateY(10px);
         }
+
         .cont.s--el-active .el__preview-cont {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.5s;
         }
+
         .el__heading {
             color: #fff;
-            background: rgba(58, 58, 58, 0.5); /* Latar belakang semi-transparan */
+            background: rgba(58, 58, 58, 0.5);
+            /* Latar belakang semi-transparan */
             text-transform: uppercase;
             font-size: 18px;
             font-family: "Syne", sans-serif;
         }
+
         .el__content {
             z-index: -1;
             position: absolute;
@@ -162,6 +181,7 @@
             pointer-events: none;
             transition: all 0.1s;
         }
+
         .el.s--active .el__content {
             z-index: 2;
             opacity: 1;
@@ -171,7 +191,8 @@
 
         /* Wrapper teks dengan latar belakang semi-transparan */
         .el__text-wrapper {
-            background: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+            background: rgba(0, 0, 0, 0.5);
+            /* Latar belakang semi-transparan */
             padding: 10px 20px;
             margin-top: 0;
             display: inline-block;
@@ -225,12 +246,10 @@
         }
 
         .btn-price {
-            background-image: linear-gradient(
-                92.88deg,
-                #455eb5 9.16%,
-                #5643cc 43.89%,
-                #673fd7 64.72%
-            );
+            background-image: linear-gradient(92.88deg,
+                    #455eb5 9.16%,
+                    #5643cc 43.89%,
+                    #673fd7 64.72%);
             border-radius: 8px;
             border-style: none;
             box-sizing: border-box;
@@ -256,6 +275,7 @@
             box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
             transition-duration: 0.1s;
         }
+
         .el__close-btn {
             z-index: -1;
             position: absolute;
@@ -268,12 +288,14 @@
             transition: all 0s 0.45s;
             cursor: pointer;
         }
+
         .el.s--active .el__close-btn {
             z-index: 5;
             opacity: 1;
             pointer-events: auto;
             transition: all 0s 1.4s;
         }
+
         .el__close-btn:before,
         .el__close-btn:after {
             content: "";
@@ -287,24 +309,30 @@
             opacity: 0;
             transition: opacity 0s;
         }
+
         .el.s--active .el__close-btn:before,
         .el.s--active .el__close-btn:after {
             opacity: 1;
         }
+
         .el__close-btn:before {
             transform: rotate(45deg) translateX(100%);
         }
+
         .el.s--active .el__close-btn:before {
             transition: all 0.3s 1.4s cubic-bezier(0.72, 0.09, 0.32, 1.57);
             transform: rotate(45deg) translateX(0);
         }
+
         .el__close-btn:after {
             transform: rotate(-45deg) translateX(100%);
         }
+
         .el.s--active .el__close-btn:after {
             transition: all 0.3s 1.55s cubic-bezier(0.72, 0.09, 0.32, 1.57);
             transform: rotate(-45deg) translateX(0);
         }
+
         .el__index {
             overflow: hidden;
             position: absolute;
@@ -320,13 +348,16 @@
             transition: transform 0.5s, opacity 0.3s 1.4s;
             transform: translate3d(0, 1vw, 0);
         }
+
         .el:hover .el__index {
             transform: translate3d(0, 0, 0);
         }
+
         .cont.s--el-active .el__index {
             transition: transform 0.5s, opacity 0.3s;
             opacity: 0;
         }
+
         .el__index-back,
         .el__index-front {
             position: absolute;
@@ -334,15 +365,18 @@
             bottom: 0;
             width: 100%;
         }
+
         .el__index-back {
             color: #2f3840;
             opacity: 0;
             transition: opacity 0.25s 0.25s;
         }
+
         .el:hover .el__index-back {
             transition: opacity 0.25s;
             opacity: 1;
         }
+
         .el__index-overlay {
             overflow: hidden;
             position: relative;
@@ -350,6 +384,7 @@
             transition: transform 0.5s 0.1s;
             color: transparent;
         }
+
         .el__index-overlay:before {
             content: attr(data-index);
             position: absolute;
@@ -361,87 +396,109 @@
             transform: translate3d(0, -100%, 0);
             transition: transform 0.5s 0.1s;
         }
+
         .el:hover .el__index-overlay {
             transform: translate3d(0, 0, 0);
         }
+
         .el:hover .el__index-overlay:before {
             transform: translate3d(0, 0, 0);
         }
+
         .el:nth-child(1) {
             transform: translate3d(0%, 0, 0);
             transform-origin: 50% 50%;
         }
+
         .cont.s--el-active .el:nth-child(1):not(.s--active) {
             transform: scale(0.5) translate3d(0%, 0, 0);
             opacity: 0;
             transition: transform 0.95s, opacity 0.95s;
         }
+
         .el:nth-child(1) .el__inner {
             transition-delay: 0s;
         }
+
         .el:nth-child(1) .el__bg {
             transform: translate3d(0%, 0, 0);
         }
+
         .el:nth-child(1) .el__bg:before {
             transition-delay: 0s;
-            background-image: url({{ asset("/img/product/PriceList.png") }});
+            background-image: url({{ asset('/img/product/PriceList.png') }});
         }
+
         .el:nth-child(2) {
             transform: translate3d(105.2083333333%, 0, 0);
             transform-origin: 155.2083333333% 50%;
         }
+
         .cont.s--el-active .el:nth-child(2):not(.s--active) {
             transform: scale(0.5) translate3d(105.2083333333%, 0, 0);
             opacity: 0;
             transition: transform 0.95s, opacity 0.95s;
         }
+
         .el:nth-child(2) .el__inner {
             transition-delay: 0.1s;
         }
+
         .el:nth-child(2) .el__bg {
             transform: translate3d(-19.2%, 0, 0);
         }
+
         .el:nth-child(2) .el__bg:before {
             transition-delay: 0.1s;
-            background-image: url({{ asset("/img/product/PriceList3.png") }});
+            background-image: url({{ asset('/img/product/PriceList3.png') }});
         }
+
         .el:nth-child(3) {
             transform: translate3d(210.4166666667%, 0, 0);
             transform-origin: 260.4166666667% 50%;
         }
+
         .cont.s--el-active .el:nth-child(3):not(.s--active) {
             transform: scale(0.5) translate3d(210.4166666667%, 0, 0);
             opacity: 0;
             transition: transform 0.95s, opacity 0.95s;
         }
+
         .el:nth-child(3) .el__inner {
             transition-delay: 0.2s;
         }
+
         .el:nth-child(3) .el__bg {
             transform: translate3d(-38.4%, 0, 0);
         }
+
         .el:nth-child(3) .el__bg:before {
             transition-delay: 0.2s;
-            background-image: url({{ asset("/img/product/organtunggal1.png") }});
+            background-image: url({{ asset('/img/product/organtunggal1.png') }});
         }
+
         .el:nth-child(4) {
             transform: translate3d(315.625%, 0, 0);
             transform-origin: 365.625% 50%;
         }
+
         .cont.s--el-active .el:nth-child(4):not(.s--active) {
             transform: scale(0.5) translate3d(315.625%, 0, 0);
             opacity: 0;
             transition: transform 0.95s, opacity 0.95s;
         }
+
         .el:nth-child(4) .el__inner {
             transition-delay: 0.3s;
         }
+
         .el:nth-child(4) .el__bg {
             transform: translate3d(-57.6%, 0, 0);
         }
+
         .el:nth-child(4) .el__bg:before {
             transition-delay: 0.3s;
-            background-image: url({{ asset("/img/product/PriceList2.jpg") }});
+            background-image: url({{ asset('/img/product/PriceList2.jpg') }});
         }
 
         .el:nth-child(5) {
@@ -449,20 +506,24 @@
             transform: translate3d(0%, 100%, 0);
             transform-origin: 50% 50%;
         }
+
         .cont.s--el-active .el:nth-child(5):not(.s--active) {
             transform: scale(0.5) translate3d(0%, 0, 0);
             opacity: 0;
             transition: transform 0.95s, opacity 0.95s;
         }
+
         .el:nth-child(5) .el__inner {
             transition-delay: 0s;
         }
+
         .el:nth-child(5) .el__bg {
             transform: translate3d(0%, 0, 0);
         }
+
         .el:nth-child(5) .el__bg:before {
             transition-delay: 0s;
-            background-image: url({{ asset("/img/product/PriceList_wd1.jpg") }});
+            background-image: url({{ asset('/img/product/PriceList_wd1.jpg') }});
         }
 
         .el:nth-child(6) {
@@ -470,20 +531,24 @@
             transform: translate3d(105.2083333333%, 100%, 0);
             transform-origin: 155.2083333333% 50%;
         }
+
         .cont.s--el-active .el:nth-child(6):not(.s--active) {
             transform: scale(0.5) translate3d(105.2083333333%, 0, 0);
             opacity: 0;
             transition: transform 0.95s, opacity 0.95s;
         }
+
         .el:nth-child(6) .el__inner {
             transition-delay: 0.1s;
         }
+
         .el:nth-child(6) .el__bg {
             transform: translate3d(-19.2%, 0, 0);
         }
+
         .el:nth-child(6) .el__bg:before {
             transition-delay: 0.1s;
-            background-image: url({{ asset("/img/product/PriceList_wd2.jpg") }});
+            background-image: url({{ asset('/img/product/PriceList_wd2.jpg') }});
         }
 
         .el:nth-child(7) {
@@ -491,49 +556,59 @@
             transform: translate3d(210.4166666667%, 100%, 0);
             transform-origin: 260.4166666667% 50%;
         }
+
         .cont.s--el-active .el:nth-child(7):not(.s--active) {
             transform: scale(0.5) translate3d(210.4166666667%, 0, 0);
             opacity: 0;
             transition: transform 0.95s, opacity 0.95s;
         }
+
         .el:nth-child(7) .el__inner {
             transition-delay: 0.2s;
         }
+
         .el:nth-child(7) .el__bg {
             transform: translate3d(-38.4%, 0, 0);
         }
 
         .el:nth-child(7) .el__bg:before {
             transition-delay: 0.2s;
-            background-image: url({{ asset("/img/product/PriceList_wd3.jpg") }});
+            background-image: url({{ asset('/img/product/PriceList_wd3.jpg') }});
         }
+
         .el:hover .el__bg:after {
             opacity: 0;
         }
+
         .el.s--active {
             z-index: 1;
             width: 100%;
             transform: translate3d(0, 0, 0);
             transition: transform 0.6s, width 0.7s 0.7s, z-index 0s;
         }
+
         .el.s--active .el__bg {
             transform: translate3d(0, 0, 0);
             transition: transform 0.6s;
         }
+
         .el.s--active .el__bg:before {
             transition-delay: 0.6s;
             transform: scale(1.1);
         }
+
         .icon-link {
             position: absolute;
             left: 5px;
             bottom: 5px;
             width: 32px;
         }
+
         .icon-link img {
             width: 100%;
             vertical-align: top;
         }
+
         .icon-link--twitter {
             left: auto;
             right: 5px;
@@ -550,7 +625,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 9999; /* Ditinggikan agar tidak tertutup elemen lain */
+            z-index: 9999;
+            /* Ditinggikan agar tidak tertutup elemen lain */
         }
 
         .modal-content {
@@ -693,12 +769,15 @@
             .cont {
                 padding: 60px 50px;
             }
+
             .el {
                 width: 25%;
             }
+
             .el__heading {
                 font-size: 16px;
             }
+
             .el__text {
                 font-size: 28px;
             }
@@ -710,10 +789,12 @@
                 padding: 20px 30px;
                 padding-left: -10px;
             }
+
             .el {
                 width: 25%;
                 height: 30vh;
             }
+
             .el__content {
                 transform: translateY(-10px);
             }
@@ -722,6 +803,7 @@
                 font-size: 14px;
                 text-align: center;
             }
+
             .el__text {
                 font-size: 14px;
                 padding-bottom: 5px;
@@ -768,6 +850,26 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .container {
+                padding-top: 80px;
+                /* Sesuaikan dengan tinggi navbar */
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .table-responsive {
+                overflow-x: auto;
+            }
+
+            .table th,
+            .table td {
+                font-size: 0.95rem;
+                padding: 8px;
+            }
+        }
     </style>
 
 </head>
