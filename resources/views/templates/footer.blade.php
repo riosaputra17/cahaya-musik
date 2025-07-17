@@ -44,15 +44,17 @@
         let calendar = new FullCalendar.Calendar(calendarEl, {
             locale: 'id',
             initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: ''
+            },
             buttonText: {
                 today: 'Hari Ini',
-                month: 'Bulan',
-                week: 'Minggu',
-                day: 'Hari',
-                list: 'Agenda'
+                month: 'Bulan'
             },
             dayHeaderFormat: {
-                weekday: 'long'
+                weekday: 'short'
             },
             selectable: true,
             selectOverlap: false,
@@ -101,7 +103,12 @@
                         alert('Terjadi kesalahan saat booking.');
                         console.error(err);
                     });
-            }
+            },
+            // Mobile friendly options
+            aspectRatio: 0.9,
+            contentHeight: 'auto',
+            expandRows: true,
+            handleWindowResize: true
         });
 
         calendar.render();
