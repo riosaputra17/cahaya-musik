@@ -115,6 +115,11 @@ class OrderController extends Controller
             return view('orders.my_orders', compact('orders'));
         }
 
+        if ($request->is_admin === "1") {
+            return redirect()->route('admin.transaksi.index')
+                ->with('success', 'Order berhasil dibuat.');
+        }
+
         return response()->json([
             'success' => true,
             'order_id' => $order->order_id,

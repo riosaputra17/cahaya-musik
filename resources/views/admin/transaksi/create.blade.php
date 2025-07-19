@@ -64,6 +64,10 @@
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
+
+                <input type="hidden" name="is_admin" value="1">
+
+                {{-- Pesan --}}
             </div>
 
             <div class="card-footer d-flex justify-content-between">
