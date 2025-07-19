@@ -174,7 +174,7 @@ class OrderController extends Controller
 
         $order->update(['payment_status' => 'expired']);
 
-        return view('payment.expired_default', compact('order'));
+        return view('payment.expired', compact('order'));
     }
 
     public function events()
