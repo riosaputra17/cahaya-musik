@@ -44,18 +44,18 @@ class PaymentController extends Controller
                 ],
                 'expiry' => [
                     'start_time' => now()->format('Y-m-d H:i:s O'),
-                    // 'unit' => 'minutes',
-                    'unit' => 'seconds',
-                    // 'duration' => 60 // expired dalam 1 jam
-                    'duration' => 25
+                    'unit' => 'minutes',
+                    // 'unit' => 'seconds',
+                    'duration' => 60 // expired dalam 1 jam
+                    // 'duration' => 25
                 ],
             ];
 
             try {
                 $snapToken = Snap::getSnapToken($params);
                 $order->snap_token = $snapToken;
-                // $order->expired_at = now()->addMinutes(60);
-                $order->expired_at = now()->addSeconds(25);
+                $order->expired_at = now()->addMinutes(60);
+                // $order->expired_at = now()->addSeconds(25);
                 $order->save();
             } catch (\Exception $e) {
                 return back()->withErrors([
