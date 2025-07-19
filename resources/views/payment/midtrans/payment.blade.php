@@ -52,19 +52,12 @@
                                     "{{ route('payment.pending', ['order' => $order->order_id]) }}";
                             },
                             onError: function(result) {
-                                if (result && result.transaction_status === 'expire') {
-                                    alert("Pembayaran telah kadaluarsa. Silakan lakukan pemesanan ulang.");
-                                    window.location.href =
-                                        "{{ route('home') }}";
-                                } else {
-                                    // alert("Error: " + JSON.stringify(result));
-                                    window.location.href =
-                                        "{{ route('home') }}";
-                                }
                                 console.error("Midtrans Error:", result);
+                                alert("Pembayaran telah kadaluarsa. Silakan lakukan pemesanan ulang.");
+                                window.location.href = "{{ route('payment.expired', ['order' => $order->order_id]) }}";
                             },
                             onClose: function() {
-                                alert('Anda belum menyelesaikan pembayaran');
+                                alert('Anda menutup halaman pembayaran. Jika tidak segera menyelesaikan pembayaran, transaksi akan kadaluarsa.');
                                 window.location.href =
                                     "{{ route('payment.pending', ['order' => $order->order_id]) }}";
                             }

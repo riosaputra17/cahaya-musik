@@ -17,6 +17,17 @@ class PaymentController extends Controller
     {
         $order = Order::findOrFail($order_id);
 
+        // Cek status
+        if (in_array($order->status, ['paid', 'success', 'expired'])) {
+            return redirect()->route('home')->with('warning', 'Pesanan ini sudah tidak dapat dibayar.');
+        }
+
+        $amount = $order->dp_harga ?? 300000;
+
+        if ($amount <= 0) {
+            return back()->withErrors(['harga' => 'Harga pembayaran tidak valid.']);
+        }
+
         // Sudah punya token? Gunakan ulang
         if ($order->snap_token) {
             $snapToken = $order->snap_token;
@@ -24,18 +35,27 @@ class PaymentController extends Controller
             $params = [
                 'transaction_details' => [
                     'order_id' => $order->order_id,
-                    'gross_amount' => $order->dp_harga ?? 300000,
+                    'gross_amount' => $amount,
                 ],
                 'customer_details' => [
                     'first_name' => $order->customer->nama,
                     'email' => $order->customer->email,
                     'phone' => $order->customer->phone,
                 ],
+                'expiry' => [
+                    'start_time' => now()->format('Y-m-d H:i:s O'),
+                    // 'unit' => 'minutes',
+                    'unit' => 'seconds',
+                    // 'duration' => 60 // expired dalam 1 jam
+                    'duration' => 25
+                ],
             ];
 
             try {
                 $snapToken = Snap::getSnapToken($params);
                 $order->snap_token = $snapToken;
+                // $order->expired_at = now()->addMinutes(60);
+                $order->expired_at = now()->addSeconds(25);
                 $order->save();
             } catch (\Exception $e) {
                 return back()->withErrors([

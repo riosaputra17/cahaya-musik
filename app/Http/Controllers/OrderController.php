@@ -108,6 +108,13 @@ class OrderController extends Controller
             'created_by' => Auth::check() ? Auth::user()->user_id : null,
         ]);
 
+        if ($request->from_expired === "1") {
+            $orders = Order::where('customer_id', $request->customer_id)
+                ->orderBy('created_at', 'desc')
+                ->get();
+            return view('orders.my_orders', compact('orders'));
+        }
+
         return response()->json([
             'success' => true,
             'order_id' => $order->order_id,
@@ -152,10 +159,19 @@ class OrderController extends Controller
         return view('payment.pending', compact('order', 'orders',));
     }
 
+    public function paymentExpired(Order $order)
+    {
+        $order->update(['payment_status' => 'expired']);
+
+        return view('payment.expired', compact('order'));
+    }
+
     public function events()
     {
 
-        $orders = Order::with('jasa')->get(['start_date', 'end_date', 'order_id', 'payment_status', 'jasa_id']);
+        $orders = Order::with('jasa')
+            ->where('payment_status', '!=', 'expired')
+            ->get(['start_date', 'end_date', 'order_id', 'payment_status', 'jasa_id']);
 
         $events = $orders->map(function ($order) {
             $color = $order->payment_status === 'pending' ? '#ffc107' : '#28a745';
