@@ -65,5 +65,6 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/payment/success/{order}', [OrderController::class, 'paymentSuccess'])->name('payment.success');
     Route::get('/payment/pending/{order}', [OrderController::class, 'paymentPending'])->name('payment.pending');
     Route::get('/payment/expired/{order}', [OrderController::class, 'paymentExpired'])->name('payment.expired');
+    Route::get('/payment/expired', [OrderController::class, 'paymentExpiredDefault'])->name('payment.expired_default');
     Route::get('/my-orders/{customer_id}', [OrderController::class, 'myOrders'])->name('orders.my');
 });

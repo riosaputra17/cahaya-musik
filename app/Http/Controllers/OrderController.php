@@ -166,6 +166,17 @@ class OrderController extends Controller
         return view('payment.expired', compact('order'));
     }
 
+    public function paymentExpiredDefault(Request $request)
+    {
+        // Ambil order_id dari query string
+        $orderId = $request->query('order_id');
+        $order = Order::where('order_id', $orderId)->firstOrFail();
+
+        $order->update(['payment_status' => 'expired']);
+
+        return view('payment.expired', compact('order'));
+    }
+
     public function events()
     {
 
