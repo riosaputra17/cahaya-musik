@@ -26,6 +26,7 @@
                             <th>Tanggal Mulai</th>
                             <th>Tanggal Selesai</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                             <th>Dibuat</th>
                         </tr>
                     </thead>
@@ -39,19 +40,20 @@
                                 <td data-label="Tanggal Mulai">{{ $order->start_date }}</td>
                                 <td data-label="Tanggal Selesai">{{ $order->end_date }}</td>
                                 <td data-label="Status">
-                                    <div class="status-container">
-                                        <span
-                                            class="status-badge status-{{ strtolower($order->payment_status ?? 'pending') }}">
-                                            {{ ucfirst($order->payment_status ?? 'pending') }}
-                                        </span>
-                                        @if (($order->payment_status ?? 'pending') === 'pending')
-                                            <form action="{{ route('pay.start', ['order_id' => $order->order_id]) }}"
-                                                method="POST" class="pay-form">
-                                                @csrf
-                                                <button type="submit" class="btn btn-sm btn-warning">Bayar</button>
-                                            </form>
-                                        @endif
-                                    </div>
+                                    <span class="status-badge status-{{ strtolower($order->payment_status ?? 'pending') }}">
+                                        {{ ucfirst($order->payment_status ?? 'pending') }}
+                                    </span>
+                                </td>
+                                <td data-label="Aksi">
+                                    @if (($order->payment_status ?? 'pending') === 'pending')
+                                        <form action="{{ route('pay.start', ['order_id' => $order->order_id]) }}"
+                                            method="POST" class="pay-form">
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-warning">Bayar</button>
+                                        </form>
+                                    @else
+                                        <span>-</span>
+                                    @endif
                                 </td>
                                 <td data-label="Dibuat">{{ $order->created_at->format('d-m-Y H:i') }}</td>
                             </tr>
